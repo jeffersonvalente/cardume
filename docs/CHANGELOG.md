@@ -6,6 +6,11 @@ All notable changes to Cardume are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+- Team rollout: a committed `.claude/settings.json` installs Cardume for everyone who opens the
+  repository, and managed settings can require it across an organization (README and
+  `docs/CONFIGURATION.md`).
+
 ### Changed
 - README rewritten in English, opening with what Cardume adds (a specialist for each part of the job,
   a process sized to each change, hooks the model cannot skip) instead of counts; a Brazilian

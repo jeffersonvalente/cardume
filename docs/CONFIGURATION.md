@@ -15,10 +15,78 @@ plugins updated, and how to use the skills in tools other than Claude Code.
 plugin, for example `/plugin install cardume-data@cardume`. `cardume-core` always comes along, since
 it holds the hooks, the delivery flow and the setup command.
 
+## Use it with a team
+
+Cardume needs no server. The plugins are files in a public marketplace, and Claude Code's own
+settings decide who gets them.
+
+### Per repository
+
+Commit `.claude/settings.json` with the marketplace and the plugins the project uses:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "cardume": {
+      "source": { "source": "github", "repo": "jeffersonvalente/cardume" },
+      "autoUpdate": true
+    }
+  },
+  "enabledPlugins": { "cardume-all@cardume": true }
+}
+```
+
+- **Interactive sessions:** the marketplace is registered once a teammate accepts the workspace trust
+  dialog for the folder. In an untrusted folder the entry is ignored. Cloud sessions never show that
+  dialog, so they ignore it too.
+- **Plugins load from the marketplace copy.** Every Cardume plugin is listed in the marketplace by a
+  relative path, so nothing else needs installing. Run `/plugin` to confirm what loaded.
+- **A subset:** list the plugins you want instead of the bundle, for example
+  `"cardume-core@cardume": true` and `"cardume-data@cardume": true`.
+- **Updates:** `"autoUpdate": true` keeps the marketplace and its plugins current in the background.
+  Without it, third-party marketplaces don't update on their own (see [Updates](#updates)).
+- **`claude -p` and CI:** the entries apply only in folders whose trust was already accepted, or whose
+  `hasTrustDialogAccepted` flag is set in `~/.claude.json`. Plugins
+  install in the background, so set `CLAUDE_CODE_SYNC_PLUGIN_INSTALL=1` to make the run wait for them
+  before the first turn.
+
+### Across an organization
+
+Put the same two keys in managed settings to install Cardume on every machine. Managed settings take
+precedence over every other scope: a plugin set to `true` there keeps loading even if a user disables it.
+
+- **Managed settings file:** `managed-settings.json` at
+  `/Library/Application Support/ClaudeCode/` (macOS), `/etc/claude-code/` (Linux and WSL) or
+  `C:\Program Files\ClaudeCode\` (Windows).
+- **Server-managed settings:** the claude.ai admin console, under **Organization settings > Claude
+  Code > Managed settings** (requires the Owner role). MDM profiles work too.
+- **Restrict sources:** `strictKnownMarketplaces` allows plugins only from the listed marketplaces.
+  Keep the official marketplace and `{ "source": "skills-dir" }` in the list if your users rely on them:
+
+  ```json
+  {
+    "strictKnownMarketplaces": [
+      { "source": "github", "repo": "anthropics/claude-plugins-official" },
+      { "source": "github", "repo": "jeffersonvalente/cardume" },
+      { "source": "skills-dir" }
+    ]
+  }
+  ```
+
+- **If your policy sets `allowManagedHooksOnly`:** hooks from plugins that users enable themselves do
+  not run. Cardume's safety hooks then run only when the plugins are force-enabled in the managed
+  `enabledPlugins`.
+- **Check a machine:** `/status` lists `Enterprise managed settings` among the setting sources when
+  the policy loaded.
+
+Official references: [Manage plugins for your organization](https://code.claude.com/docs/en/plugins/org)
+and [Deploy managed settings](https://code.claude.com/docs/en/managed-settings).
+
 ## Updates
 
-Third-party marketplaces do not update on their own. Use `/plugin` → Marketplaces →
-*Enable auto-update*, or run `claude plugin marketplace update cardume`.
+Third-party marketplaces do not update on their own. Use `/plugin` → Marketplaces → `cardume` →
+*Enable auto-update*, or update by hand: `claude plugin marketplace update cardume` refreshes the
+listing, and `claude plugin update <plugin>@cardume` updates an installed plugin.
 
 ## Settings
 
