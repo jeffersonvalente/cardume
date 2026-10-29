@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Usage: cardume-design-flow <script.mjs> [args]  — runs a bundled design-flow script with node
+here="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+script="$1"; shift || true
+[ -z "$script" ] && { ls "$here/../skills/design-flow/scripts"; exit 1; }
+exec node "$here/../skills/design-flow/scripts/$script" "$@"

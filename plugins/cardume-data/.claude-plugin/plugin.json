@@ -1,0 +1,16 @@
+{
+  "name": "cardume-data",
+  "version": "2.0.0",
+  "description": "BigQuery, lakehouse, Airflow, GCP data observability, data PR review, data and AI project audits",
+  "author": {
+    "name": "Cardume"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cardume",
+    "data"
+  ],
+  "dependencies": [
+    "cardume-core"
+  ]
+}

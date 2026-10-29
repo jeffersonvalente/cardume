@@ -1,0 +1,59 @@
+{
+  "mcpServers": {
+    "github": {
+      "type": "stdio",
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "-e", "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "-e", "GITHUB_TOOLSETS",
+        "-e", "GITHUB_READ_ONLY",
+        "ghcr.io/github/github-mcp-server:v2.0.3@sha256:250bc6ce70788207608ef74cef4397230ff2e8481218da74d6093e4bd9101132"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${CARDUME_GITHUB_PAT}",
+        "GITHUB_TOOLSETS": "context,repos,issues,pull_requests,actions",
+        "GITHUB_READ_ONLY": "1"
+      }
+    },
+    "bigquery": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@toolbox-sdk/server@1.15.0", "--prebuilt=bigquery", "--stdio"],
+      "env": {
+        "BIGQUERY_PROJECT": "${BIGQUERY_PROJECT}",
+        "BIGQUERY_LOCATION": "${BIGQUERY_LOCATION:-}",
+        "BIGQUERY_READONLY": "true",
+        "BIGQUERY_MAXIMUM_BYTES_BILLED": "${BIGQUERY_MAXIMUM_BYTES_BILLED:-10737418240}"
+      }
+    },
+    "gcloud": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@google-cloud/gcloud-mcp@0.5.3"]
+    },
+    "gcp-observability": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@google-cloud/observability-mcp@0.2.3"]
+    },
+    "gcp-storage": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@google-cloud/storage-mcp@0.6.0"]
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@0.0.83", "--headless", "--isolated"]
+    },
+    "atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v2/mcp"
+    },
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp"
+    }
+  }
+}

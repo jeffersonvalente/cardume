@@ -1,0 +1,16 @@
+{
+  "name": "cardume-frontend",
+  "version": "2.0.0",
+  "description": "UI design (design-flow), websites, React/Next.js, mobile, performance, SEO/GEO, i18n",
+  "author": {
+    "name": "Cardume"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cardume",
+    "frontend"
+  ],
+  "dependencies": [
+    "cardume-core"
+  ]
+}

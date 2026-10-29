@@ -1,0 +1,16 @@
+{
+  "name": "cardume-games",
+  "version": "2.0.0",
+  "description": "Game development: engine choice, game loop, physics, game feel, performance, multiplayer and shipping",
+  "author": {
+    "name": "Cardume"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cardume",
+    "games"
+  ],
+  "dependencies": [
+    "cardume-core"
+  ]
+}

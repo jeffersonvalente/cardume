@@ -1,0 +1,50 @@
+name: Validate Cardume
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate plugins, agents and skills
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.11'
+
+      - name: Check commit messages for blocked names
+        if: github.event_name == 'pull_request'
+        run: git log --format=%B origin/main..HEAD | python scripts/validate.py --check-text
+
+      - name: Run kit validation
+        run: python scripts/validate.py
+
+      - name: Check bin/ launchers are up to date
+        run: |
+          python scripts/gen_bins.py
+          git diff --exit-code -- plugins/ || (echo "Run: python scripts/gen_bins.py" && exit 1)
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+
+      - name: Validate plugin manifests
+        run: npx -y @anthropic-ai/claude-code@2.1.312 plugin validate . --strict

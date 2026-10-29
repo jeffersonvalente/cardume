@@ -1,0 +1,22 @@
+{
+  "name": "cardume-all",
+  "version": "2.0.0",
+  "description": "The whole suite: installs every Cardume plugin at once",
+  "author": {
+    "name": "Cardume"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cardume",
+    "bundle"
+  ],
+  "dependencies": [
+    "cardume-core",
+    "cardume-frontend",
+    "cardume-backend",
+    "cardume-data",
+    "cardume-platform",
+    "cardume-qa",
+    "cardume-games"
+  ]
+}

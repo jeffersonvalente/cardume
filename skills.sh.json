@@ -1,0 +1,12 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "paths": [
+    "./plugins/cardume-backend/skills",
+    "./plugins/cardume-core/skills",
+    "./plugins/cardume-data/skills",
+    "./plugins/cardume-frontend/skills",
+    "./plugins/cardume-games/skills",
+    "./plugins/cardume-platform/skills",
+    "./plugins/cardume-qa/skills"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "cardume-platform",
+  "version": "2.0.0",
+  "description": "DevOps, Terraform, Kubernetes, FinOps, cloud assessment, project bootstrap, IaC review, observability (OpenTelemetry, SLOs, alerts)",
+  "author": {
+    "name": "Cardume"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cardume",
+    "platform"
+  ],
+  "dependencies": [
+    "cardume-core"
+  ],
+  "userConfig": {
+    "terraform_modules_repo": {
+      "type": "string",
+      "title": "Terraform modules repository",
+      "description": "Git URL of your central Terraform modules repo, e.g. git@github.com:acme/terraform-modules",
+      "default": "git@github.com:YOUR_ORG/terraform-modules"
+    },
+    "terraform_state_bucket_prefix": {
+      "type": "string",
+      "title": "Terraform state bucket prefix",
+      "description": "Prefix of the GCS buckets that hold Terraform state; when no full bucket name is given, the name becomes <prefix>-tfstate-<env>",
+      "default": "YOUR_ORG"
+    },
+    "default_region": {
+      "type": "string",
+      "title": "Default cloud region",
+      "description": "Region used when the user does not specify one",
+      "default": "us-central1"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "cardume-core",
+  "version": "2.0.0",
+  "description": "Delivery flow (spec, tasks, verify, gate, release), safety hooks, routing, planning, debugging and core commands",
+  "author": {
+    "name": "Cardume"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cardume",
+    "core"
+  ]
+}

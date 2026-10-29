@@ -1,0 +1,95 @@
+name: Evals
+
+# Behavioral evals (`claude plugin eval`) call the Claude API, so they cost money and need the
+# ANTHROPIC_API_KEY repository secret. They run weekly and on demand, not on every push.
+on:
+  workflow_dispatch:
+    inputs:
+      runs:
+        description: 'Runs per case (1-5)'
+        required: true
+        type: number
+        default: 3
+  schedule:
+    - cron: '0 9 * * 1'
+
+permissions:
+  contents: read
+
+# One eval run at a time: a new dispatch cancels the previous one instead of stacking costs.
+concurrency:
+  group: evals
+  cancel-in-progress: true
+
+jobs:
+  eval:
+    name: Eval ${{ matrix.plugin }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        plugin: [cardume-core, cardume-frontend, cardume-backend, cardume-data, cardume-platform, cardume-qa, cardume-games]
+    env:
+      HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+      # Passed through env (never interpolated into the script) and validated before use.
+      RUNS: ${{ inputs.runs || 3 }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+
+      - name: Validate inputs
+        run: |
+          [[ "$RUNS" =~ ^[1-5]$ ]] || { echo "runs must be 1-5, got: $RUNS"; exit 1; }
+
+      - name: Run evals
+        if: env.HAS_KEY == 'true'
+        working-directory: plugins/${{ matrix.plugin }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: >
+          npx -y @anthropic-ai/claude-code@2.1.312 plugin eval .
+          --trust-plugin --no-publish
+          --runs "$RUNS"
+          --model claude-sonnet-5-5 --judge-model claude-sonnet-5-5
+          --threshold 0.67 --max-cost-usd 8
+          --json evals/results/results.json
+
+      # Two-arm runs report `tool_used: Skill` graders as indicators only, so routing regressions
+      # would never fail the job. This single-arm run scores them for cases tagged `trigger`.
+      - name: Run trigger evals (routing must fire)
+        if: env.HAS_KEY == 'true'
+        working-directory: plugins/${{ matrix.plugin }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: >
+          npx -y @anthropic-ai/claude-code@2.1.312 plugin eval .
+          --trust-plugin --no-publish --ablation none --tag trigger
+          --runs "$RUNS"
+          --model claude-sonnet-5-5 --judge-model claude-sonnet-5-5
+          --threshold 0.67 --max-cost-usd 6
+          --output-dir evals/results/trigger
+
+      - name: Check results for leaked credentials
+        id: leakcheck
+        if: always() && env.HAS_KEY == 'true'
+        run: |
+          if grep -rIl 'sk-ant-' "plugins/${{ matrix.plugin }}/evals/results" 2>/dev/null; then
+            echo "Credential-like string found in eval results; not uploading."; exit 1
+          fi
+
+      - name: Upload results
+        if: always() && env.HAS_KEY == 'true' && steps.leakcheck.outcome == 'success'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: eval-${{ matrix.plugin }}
+          path: plugins/${{ matrix.plugin }}/evals/results/
+          retention-days: 14

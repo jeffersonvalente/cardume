@@ -1,0 +1,49 @@
+{
+  "name": "cardume",
+  "owner": {
+    "name": "Cardume"
+  },
+  "description": "Open-source agents, skills, commands and safety hooks for Claude Code, with proportional spec-driven delivery and an independent verifier",
+  "plugins": [
+    {
+      "name": "cardume-all",
+      "source": "./plugins/cardume-all",
+      "description": "The whole suite: installs every Cardume plugin at once"
+    },
+    {
+      "name": "cardume-core",
+      "source": "./plugins/cardume-core",
+      "description": "Delivery flow (spec, tasks, verify, gate, release), safety hooks, routing, planning, debugging and core commands"
+    },
+    {
+      "name": "cardume-frontend",
+      "source": "./plugins/cardume-frontend",
+      "description": "UI design (design-flow), websites, React/Next.js, mobile, performance, SEO/GEO, i18n"
+    },
+    {
+      "name": "cardume-backend",
+      "source": "./plugins/cardume-backend",
+      "description": "APIs, databases, Node.js, Java/Spring, Rust, MCP servers"
+    },
+    {
+      "name": "cardume-data",
+      "source": "./plugins/cardume-data",
+      "description": "BigQuery, lakehouse, Airflow, GCP data observability, data PR review, data and AI project audits"
+    },
+    {
+      "name": "cardume-platform",
+      "source": "./plugins/cardume-platform",
+      "description": "DevOps, Terraform, Kubernetes, FinOps, cloud assessment, project bootstrap, IaC review, observability (OpenTelemetry, SLOs, alerts)"
+    },
+    {
+      "name": "cardume-qa",
+      "source": "./plugins/cardume-qa",
+      "description": "Testing, TDD, E2E with Playwright, security (audit, scanning, red team)"
+    },
+    {
+      "name": "cardume-games",
+      "source": "./plugins/cardume-games",
+      "description": "Game development: engine choice, game loop, physics, game feel, performance, multiplayer and shipping"
+    }
+  ]
+}

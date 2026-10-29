@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="512" viewBox="0 0 1040 512" role="img" aria-label="How Cardume works">
+  <rect width="1040" height="512" fill="#0d1117"/>
+  <defs><marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#656c76"/></marker></defs>
+  <rect x="140" y="12" width="884" height="40" rx="8" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+  <text x="156" y="37" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#9198a1" text-anchor="start">Written as it goes</text>
+  <rect x="300" y="20" width="75.39999999999999" height="24" rx="6" fill="#0c2d6b" stroke="#1f6feb" stroke-width="1"/>
+  <text x="337.7" y="36.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.5" font-weight="500" fill="#f0f6fc" text-anchor="middle">spec.md</text>
+  <rect x="387.4" y="20" width="83.6" height="24" rx="6" fill="#0c2d6b" stroke="#1f6feb" stroke-width="1"/>
+  <text x="429.2" y="36.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.5" font-weight="500" fill="#f0f6fc" text-anchor="middle">tasks.md</text>
+  <rect x="483.0" y="20" width="50.8" height="24" rx="6" fill="#0c2d6b" stroke="#1f6feb" stroke-width="1"/>
+  <text x="508.4" y="36.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.5" font-weight="500" fill="#f0f6fc" text-anchor="middle">ADRs</text>
+  <rect x="545.8" y="20" width="108.19999999999999" height="24" rx="6" fill="#0c2d6b" stroke="#1f6feb" stroke-width="1"/>
+  <text x="599.9" y="36.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.5" font-weight="500" fill="#f0f6fc" text-anchor="middle">gate report</text>
+  <path d="M872,96 V74 H632 V92" fill="none" stroke="#db61a2" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#head)"/>
+  <text x="752" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#db61a2" text-anchor="middle">gap found → back to work</text>
+  <rect x="16" y="206" width="104" height="80" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+  <text x="68" y="238" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f0f6fc" text-anchor="middle">Your</text>
+  <text x="68" y="257" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f0f6fc" text-anchor="middle">request</text>
+  <text x="68" y="275" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="middle">plain words</text>
+  <line x1="120" y1="246" x2="138" y2="246" stroke="#656c76" stroke-width="1.5" marker-end="url(#head)"/>
+  <rect x="140" y="96" width="176" height="300" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+  <circle cx="162" cy="122" r="11" fill="#ab7df8"/>
+  <text x="162" y="126.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#0d1117" text-anchor="middle">1</text>
+  <text x="180" y="127" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f0f6fc" text-anchor="start">Classify</text>
+  <text x="156" y="152" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">work level</text>
+  <rect x="154" y="172" width="148" height="38" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <circle cx="172" cy="191" r="10" fill="none" stroke="#ab7df8" stroke-width="1.5"/>
+  <text x="172" y="195.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#ab7df8" text-anchor="middle">0</text>
+  <text x="190" y="195.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#f0f6fc" text-anchor="start">direct fix</text>
+  <rect x="154" y="222" width="148" height="38" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <circle cx="172" cy="241" r="10" fill="none" stroke="#ab7df8" stroke-width="1.5"/>
+  <text x="172" y="245.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#ab7df8" text-anchor="middle">1</text>
+  <text x="190" y="245.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#f0f6fc" text-anchor="start">mini-spec</text>
+  <rect x="154" y="272" width="148" height="38" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <circle cx="172" cy="291" r="10" fill="none" stroke="#ab7df8" stroke-width="1.5"/>
+  <text x="172" y="295.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#ab7df8" text-anchor="middle">2</text>
+  <text x="190" y="295.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#f0f6fc" text-anchor="start">spec → tasks</text>
+  <rect x="154" y="322" width="148" height="38" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <circle cx="172" cy="341" r="10" fill="none" stroke="#ab7df8" stroke-width="1.5"/>
+  <text x="172" y="345.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#ab7df8" text-anchor="middle">3</text>
+  <text x="190" y="345.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#f0f6fc" text-anchor="start">PRD → ADRs</text>
+  <line x1="316" y1="246" x2="334" y2="246" stroke="#656c76" stroke-width="1.5" marker-end="url(#head)"/>
+  <rect x="336" y="96" width="116" height="300" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+  <circle cx="358" cy="122" r="11" fill="#4493f8"/>
+  <text x="358" y="126.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#0d1117" text-anchor="middle">2</text>
+  <text x="376" y="127" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f0f6fc" text-anchor="start">Route</text>
+  <text x="352" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0f6fc" text-anchor="start">picks the</text>
+  <text x="352" y="179" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0f6fc" text-anchor="start">specialist</text>
+  <text x="352" y="198" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0f6fc" text-anchor="start">for the task</text>
+  <rect x="348" y="228" width="92" height="26" rx="6" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="394" y="245.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#4493f8" text-anchor="middle">routing table</text>
+  <text x="352" y="290" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">you never</text>
+  <text x="352" y="308" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">name an agent</text>
+  <line x1="452" y1="246" x2="470" y2="246" stroke="#656c76" stroke-width="1.5" marker-end="url(#head)"/>
+  <rect x="472" y="96" width="320" height="300" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+  <circle cx="494" cy="122" r="11" fill="#3fb950"/>
+  <text x="494" y="126.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#0d1117" text-anchor="middle">3</text>
+  <text x="512" y="127" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f0f6fc" text-anchor="start">Specialists build</text>
+  <text x="488" y="152" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">33 agents · 62 skills in seven plugins</text>
+  <rect x="486" y="166" width="144" height="46" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="498" y="185" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" font-weight="700" fill="#3fb950" text-anchor="start">core</text>
+  <text x="498" y="202" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="start">plan · debug · release</text>
+  <rect x="636" y="166" width="144" height="46" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="648" y="185" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" font-weight="700" fill="#3fb950" text-anchor="start">frontend</text>
+  <text x="648" y="202" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="start">design · web · mobile</text>
+  <rect x="486" y="220" width="144" height="46" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="498" y="239" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" font-weight="700" fill="#3fb950" text-anchor="start">backend</text>
+  <text x="498" y="256" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="start">APIs · databases</text>
+  <rect x="636" y="220" width="144" height="46" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="648" y="239" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" font-weight="700" fill="#3fb950" text-anchor="start">data</text>
+  <text x="648" y="256" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="start">BigQuery · pipelines</text>
+  <rect x="486" y="274" width="144" height="46" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="498" y="293" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" font-weight="700" fill="#3fb950" text-anchor="start">platform</text>
+  <text x="498" y="310" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="start">IaC · K8s · FinOps</text>
+  <rect x="636" y="274" width="144" height="46" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="648" y="293" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" font-weight="700" fill="#3fb950" text-anchor="start">qa</text>
+  <text x="648" y="310" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="start">tests · security</text>
+  <rect x="486" y="328" width="144" height="46" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="498" y="347" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" font-weight="700" fill="#3fb950" text-anchor="start">games</text>
+  <text x="498" y="364" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="start">engines · game feel</text>
+  <rect x="636" y="328" width="144" height="46" rx="8" fill="#0d1117" stroke="#3d444d" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="708" y="356" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.5" font-weight="500" fill="#9198a1" text-anchor="middle">+ /commands</text>
+  <line x1="792" y1="246" x2="810" y2="246" stroke="#656c76" stroke-width="1.5" marker-end="url(#head)"/>
+  <rect x="812" y="96" width="120" height="300" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+  <circle cx="834" cy="122" r="11" fill="#db61a2"/>
+  <text x="834" y="126.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#0d1117" text-anchor="middle">4</text>
+  <text x="852" y="127" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f0f6fc" text-anchor="start">Verify</text>
+  <text x="828" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0f6fc" text-anchor="start">separate</text>
+  <text x="828" y="179" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0f6fc" text-anchor="start">context</text>
+  <rect x="822" y="204" width="100" height="26" rx="6" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="872" y="221.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#db61a2" text-anchor="middle">verify</text>
+  <rect x="822" y="236" width="100" height="26" rx="6" fill="#0d1117" stroke="#3d444d" stroke-width="1"/>
+  <text x="872" y="253.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#db61a2" text-anchor="middle">qa-gatekeeper</text>
+  <text x="828" y="286" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">accepts only</text>
+  <text x="828" y="304" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">evidence:</text>
+  <text x="828" y="322" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">commands and</text>
+  <text x="828" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">their output,</text>
+  <text x="828" y="358" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">tests, files</text>
+  <line x1="932" y1="246" x2="950" y2="246" stroke="#656c76" stroke-width="1.5" marker-end="url(#head)"/>
+  <rect x="952" y="216" width="72" height="60" rx="10" fill="#12261e" stroke="#3fb950" stroke-width="1"/>
+  <text x="988" y="243" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#f0f6fc" text-anchor="middle">Done</text>
+  <text x="988" y="262" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="middle">with proof</text>
+  <text x="140" y="426" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#9198a1" text-anchor="start">Hooks — run outside the model, on edits, shell commands and turn end</text>
+  <rect x="140" y="436" width="212" height="58" rx="8" fill="#2a2111" stroke="#9e6a03" stroke-width="1"/>
+  <text x="152" y="459" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.5" font-weight="700" fill="#e3b341" text-anchor="start">guard_bash</text>
+  <text x="152" y="479" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#f0f6fc" text-anchor="start">asks before risky commands</text>
+  <rect x="364" y="436" width="212" height="58" rx="8" fill="#2a2111" stroke="#9e6a03" stroke-width="1"/>
+  <text x="376" y="459" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.5" font-weight="700" fill="#e3b341" text-anchor="start">syntax_check</text>
+  <text x="376" y="479" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#f0f6fc" text-anchor="start">syntax errors after each edit</text>
+  <rect x="588" y="436" width="212" height="58" rx="8" fill="#2a2111" stroke="#9e6a03" stroke-width="1"/>
+  <text x="600" y="459" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.5" font-weight="700" fill="#e3b341" text-anchor="start">stop_verify</text>
+  <text x="600" y="479" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#f0f6fc" text-anchor="start">lint + scan must pass to end</text>
+  <rect x="812" y="436" width="212" height="58" rx="8" fill="#2a2111" stroke="#9e6a03" stroke-width="1"/>
+  <text x="824" y="459" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.5" font-weight="700" fill="#e3b341" text-anchor="start">restrict_verifier_writes</text>
+  <text x="824" y="479" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#f0f6fc" text-anchor="start">the verifier can't edit code</text>
+</svg>
