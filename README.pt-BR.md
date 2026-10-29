@@ -31,12 +31,30 @@ código (LSP) que combinam com o projeto. Depois disso, descreva a tarefa como s
 suporte a várias moedas nas faturas"*, *"o endpoint de pedidos dá 500 às vezes"*. O Cardume chama
 você só quando a decisão é sua.
 
+**Para o time todo**, commite isto como `.claude/settings.json` no repositório. Quem abrir o projeto
+e confiar na pasta recebe o marketplace e os plugins, sem nenhum servidor para manter:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "cardume": {
+      "source": { "source": "github", "repo": "jeffersonvalente/cardume" },
+      "autoUpdate": true
+    }
+  },
+  "enabledPlugins": { "cardume-all@cardume": true }
+}
+```
+
+Uma empresa pode ir além e exigir o Cardume em todas as máquinas pelas configurações gerenciadas (managed settings), sem que dê
+para desligar. Veja [Use it with a team](docs/CONFIGURATION.md#use-it-with-a-team) (em inglês).
+
 <p align="center"><img src="docs/assets/compare-feature.gif" width="900" alt="Gravação lado a lado do mesmo pedido em dois projetos idênticos: guardar clientes e faturas em SQLite e exportar CSV. À esquerda, o Claude Code puro já escreve o código e toma as decisões de design sozinho. À direita, com Cardume, o Claude anuncia Level 2 — feature, invoca a skill cardume-core:spec, pergunta sobre formato de dinheiro, dados e interface, escreve uma spec com requisitos numerados de R1 a R12, planeja um ADR e espera aprovação antes de codar."></p>
 
 *Mesmo pedido, dois projetos idênticos, gravação real (acelerada). **Esquerda:** o Claude Code puro sai
 codando e decide armazenamento, formato de dinheiro e interface sozinho. **Direita:** o Cardume classifica
 como **nível 2**, invoca `cardume-core:spec`, pergunta as decisões que mudam o design, escreve uma spec
-com requisitos numerados e espera tua aprovação antes de qualquer código.*
+com requisitos numerados e espera sua aprovação antes de qualquer código.*
 
 ## O que dá para pedir
 
@@ -74,7 +92,8 @@ conseguiu verificar e as perguntas que bloqueiam a correção, e planeja uma min
   descrição dos agentes, usando a tabela
   [`intelligent-routing`](plugins/cardume-core/skills/intelligent-routing/SKILL.md) quando a escolha
   não é óbvia. Você nunca precisa citar um agente.
-- **Quem garante é o harness, não o prompt.** Os hooks rodam fora do modelo.
+- **Quem garante é o harness, não o prompt.** Os hooks rodam fora do modelo: um modelo segue as
+  instruções na maioria das vezes, um hook roda sempre, não importa o que o modelo decidiu.
   O [`stop_verify`](plugins/cardume-core/hooks/stop_verify.py) impede o fim do turno enquanto o scan
   de segurança ou o lint falham nos arquivos alterados no working tree do git.
   O [`guard_bash`](plugins/cardume-core/hooks/guard_bash.py) pergunta a você antes de

@@ -31,6 +31,24 @@ that fit the project. After that, describe your task as usual: *"add multi-curre
 invoices"*, *"the orders endpoint returns 500 sometimes"*. Cardume calls you only when the decision
 is yours.
 
+**For the whole team**, commit this as `.claude/settings.json` in the repository. Everyone who opens
+the project and trusts the folder gets the marketplace and the plugins, with no server to run:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "cardume": {
+      "source": { "source": "github", "repo": "jeffersonvalente/cardume" },
+      "autoUpdate": true
+    }
+  },
+  "enabledPlugins": { "cardume-all@cardume": true }
+}
+```
+
+An organization can go further and require Cardume on every machine through managed settings, so it
+can't be turned off. See [Use it with a team](docs/CONFIGURATION.md#use-it-with-a-team).
+
 <p align="center"><img src="docs/assets/compare-feature.gif" width="900" alt="Side-by-side recording of the same request in two identical projects: store customers and invoices in SQLite and add a CSV export. Left, plain Claude Code writes the code straight away and makes the design decisions itself. Right, with Cardume, Claude announces Level 2 — feature, invokes the cardume-core:spec skill, asks about money storage, data shape and interface, writes a spec with numbered requirements R1 to R12, plans an ADR and waits for approval before coding."></p>
 
 *Same request, two identical projects, recorded live (sped up). **Left:** plain Claude Code starts coding and
@@ -73,7 +91,8 @@ couldn't verify and the questions that block a fix, and plans a mini-spec before
   frontend, backend, data, platform, QA, security and games. Claude routes each task by the agents'
   descriptions, using the [`intelligent-routing`](plugins/cardume-core/skills/intelligent-routing/SKILL.md)
   table when the choice is not obvious. You never name an agent.
-- **The harness enforces it, not the prompt.** Hooks run outside the model.
+- **The harness enforces it, not the prompt.** Hooks run outside the model: a model follows its
+  instructions most of the time, a hook runs every time, whatever the model decided.
   [`stop_verify`](plugins/cardume-core/hooks/stop_verify.py) blocks the end of a turn while the
   security scan or lint fails on the changed files in the git working tree.
   [`guard_bash`](plugins/cardume-core/hooks/guard_bash.py) asks you before `terraform apply`,
