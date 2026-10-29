@@ -163,10 +163,11 @@ A lista completa, com uma linha por item, está em [docs/CATALOG.md](docs/CATALO
 Cada plugin tem casos em `evals/` para o `claude plugin eval`. Um caso é um prompt realista mais
 avaliadores: a skill certa carregou, o comando destrutivo ficou sem rodar, a resposta atende a uma
 rubrica escrita avaliada por um modelo juiz. Cada caso roda com e sem o plugin, então a nota é uma
-diferença, não um valor absoluto.
+diferença, não um valor absoluto. Para os plugins que dependem do `cardume-core`, essa diferença é
+core mais plugin contra o Claude puro.
 
 ```bash
-cd plugins/cardume-qa && claude plugin eval . --runs 3 --no-publish
+cd plugins && claude plugin eval . --eval-dir cardume-qa/evals --scaffold --runs 3 --no-publish
 ```
 
 O que eles não cobrem: os hooks (scripts determinísticos, não avaliados por modelo), projetos de
@@ -216,7 +217,7 @@ Codex, Cursor, Gemini CLI e Copilot com `npx skills add jeffersonvalente/cardume
 
 ## Contribuindo
 
-Leia o [CONTRIBUTING.md](CONTRIBUTING.md) para a estrutura, as convenções e as 18 checagens do
+Leia o [CONTRIBUTING.md](CONTRIBUTING.md) para a estrutura, as convenções e as 19 checagens do
 `scripts/validate.py`, e o [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) para escrever uma
 skill. As mudanças ficam em [docs/CHANGELOG.md](docs/CHANGELOG.md).
 

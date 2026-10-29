@@ -50,33 +50,39 @@ jobs:
         run: |
           [[ "$RUNS" =~ ^[1-5]$ ]] || { echo "runs must be 1-5, got: $RUNS"; exit 1; }
 
+      # Cases list their plugin and its dependencies (cardume-core); the run starts from plugins/ so both
+      # directories are inside the eval's containment root. Scaffolds are this repo's own fixture scripts.
       - name: Run evals
         if: env.HAS_KEY == 'true'
-        working-directory: plugins/${{ matrix.plugin }}
+        working-directory: plugins
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PLUGIN: ${{ matrix.plugin }}
         run: >
           npx -y @anthropic-ai/claude-code@2.1.312 plugin eval .
+          --eval-dir "$PLUGIN/evals" --scaffold
           --trust-plugin --no-publish
           --runs "$RUNS"
           --model claude-sonnet-5-5 --judge-model claude-sonnet-5-5
           --threshold 0.67 --max-cost-usd 8
-          --json evals/results/results.json
+          --json "$PLUGIN/evals/results/results.json"
 
       # Two-arm runs report `tool_used: Skill` graders as indicators only, so routing regressions
       # would never fail the job. This single-arm run scores them for cases tagged `trigger`.
       - name: Run trigger evals (routing must fire)
         if: env.HAS_KEY == 'true'
-        working-directory: plugins/${{ matrix.plugin }}
+        working-directory: plugins
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PLUGIN: ${{ matrix.plugin }}
         run: >
           npx -y @anthropic-ai/claude-code@2.1.312 plugin eval .
+          --eval-dir "$PLUGIN/evals" --scaffold
           --trust-plugin --no-publish --ablation none --tag trigger
           --runs "$RUNS"
           --model claude-sonnet-5-5 --judge-model claude-sonnet-5-5
           --threshold 0.67 --max-cost-usd 6
-          --output-dir evals/results/trigger
+          --output-dir "$PLUGIN/evals/results/trigger"
 
       - name: Check results for leaked credentials
         id: leakcheck

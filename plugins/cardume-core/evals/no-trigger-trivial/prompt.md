@@ -1,5 +1,6 @@
 ---
 name: no-trigger-trivial
+plugins: ["../.."]
 tags: [negative, smoke]
 runs: 3
 max_turns: 10

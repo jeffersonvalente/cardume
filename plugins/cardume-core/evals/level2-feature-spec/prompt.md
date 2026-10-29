@@ -1,5 +1,6 @@
 ---
 name: level2-feature-spec
+plugins: ["../.."]
 tags: [trigger, levels]
 runs: 3
 max_turns: 10

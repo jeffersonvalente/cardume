@@ -31,6 +31,18 @@ By default `claude plugin eval` runs each case in two arms, with the plugin and 
 score difference. That baseline is the point: a skill that does not beat plain Claude on its own
 domain is not earning its context cost.
 
+Every plugin except `cardume-core` depends on `cardume-core`, and `claude plugin eval` loads only the
+plugins a case lists. A plugin whose dependency is missing doesn't load at all, so each case names its
+plugin and the dependency in `plugins:` (relative to the case folder):
+
+```yaml
+plugins: ["../..", "../../../cardume-core"]   # cardume-core's own cases list only "../.."
+```
+
+The baseline arm runs with neither, so for those plugins the score difference is **core plus plugin
+versus plain Claude**, not the plugin's increment over `cardume-core`. The validator fails when a
+case is missing its plugins.
+
 ## What they measure
 
 - **Routing:** whether the matching skill fires for a realistic request, and whether nothing fires
@@ -45,7 +57,9 @@ domain is not earning its context cost.
 - **The hooks.** `stop_verify`, `guard_bash` and the other hooks are deterministic scripts; no eval
   case exercises them end to end. Read them in
   [`plugins/cardume-core/hooks/`](../plugins/cardume-core/hooks/) and see [SAFETY.md](SAFETY.md).
-- **Edits to a real codebase.** Each case is one request with a turn limit and no project fixture.
+- **Edits to a real codebase.** Each case is one request with a turn limit, in an empty workspace.
+  Three cases that point at a project file (a PRD, a gate report, a spec) create it first with a
+  `scaffold_script`.
   37 of the 40 cases allow only `Read`, `Glob`, `Grep` and `Skill` (three also allow `Bash`), so they
   grade what Claude says and which skills it loads, not files it writes.
 - **Long projects.** A full level-3 delivery (PRD to release) is not run end to end.
@@ -59,24 +73,28 @@ with the model and judge named.
 
 ## Run them locally
 
-From a plugin folder:
+From the `plugins/` folder, naming the plugin's eval folder. Running from inside a plugin doesn't work:
+the eval refuses to load `../../../cardume-core` because it is outside the plugin it was started in.
 
 ```bash
-cd plugins/cardume-qa
-claude plugin eval . --runs 3 --no-publish
+cd plugins
+claude plugin eval . --eval-dir cardume-qa/evals --scaffold --runs 3 --no-publish
 ```
+
+`--scaffold` runs the cases' fixture scripts (`context.scaffold_script` in `case.yaml`), which only
+write files and a git history into the run's empty workspace.
 
 Useful options: `--case <glob>` to run one case, `--tag trigger` to run only routing cases,
 `--json results.json` for the full per-run result, and `--max-cost-usd <n>` for a hard spending
 limit. Each run is a real Claude session on your own credentials, so it costs money. Results go to
-`evals/results/`, which is ignored by git.
+`<plugin>/evals/results/`, which is ignored by git.
 
 To score routing on its own, run the `trigger` cases in a single arm. In the default two-arm mode,
 `tool_used: Skill` graders are reported only as an indicator that the plugin fired, not as part of
 the score:
 
 ```bash
-claude plugin eval . --ablation none --tag trigger --runs 3 --no-publish
+claude plugin eval . --eval-dir cardume-qa/evals --scaffold --ablation none --tag trigger --runs 3 --no-publish
 ```
 
 ## In CI
@@ -85,6 +103,8 @@ The [Evals workflow](../.github/workflows/evals.yml) runs every week and on dema
 *Run workflow*):
 
 - it needs the `ANTHROPIC_API_KEY` repository secret, and skips the run without it;
+- it runs from `plugins/` with `--eval-dir <plugin>/evals --scaffold`, so each case loads its plugin
+  together with `cardume-core`;
 - each plugin runs the full suite with the baseline, then the `trigger` cases in a single arm, so a
   broken route fails the job;
 - the judge is Sonnet, with a pass threshold of 0.67;
@@ -96,4 +116,7 @@ The [Evals workflow](../.github/workflows/evals.yml) runs every week and on dema
 
 A new model-invoked skill needs at least one case. Copy an existing folder, write a prompt a real
 user would send, and add a `tool_used` grader for the skill plus an `llm` grader with a concrete
-PASS/FAIL rubric. See [CONTRIBUTING.md](../CONTRIBUTING.md).
+PASS/FAIL rubric. Keep the `plugins:` line of the plugin you copied from. Regex graders are JavaScript
+regular expressions: write `flags: i` for case-insensitive matching, since inline `(?i)` is not
+supported. If the prompt points at a project file, add a `case.yaml` with a `scaffold_script` that
+creates it. See [CONTRIBUTING.md](../CONTRIBUTING.md).

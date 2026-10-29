@@ -1,5 +1,6 @@
 ---
 name: perf-slow-react-list
+plugins: ["../..", "../../../cardume-core"]
 tags: [trigger]
 runs: 3
 max_turns: 10

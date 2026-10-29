@@ -1,6 +1,7 @@
 ---
 type: regex
-pattern: "(?i)breaking|BREAKING CHANGE|refunds/sync"
+pattern: "breaking|BREAKING CHANGE|refunds/sync"
+flags: i
 target: last_message
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: level0-typo-no-spec
+plugins: ["../.."]
 tags: [negative, levels]
 runs: 3
 max_turns: 10

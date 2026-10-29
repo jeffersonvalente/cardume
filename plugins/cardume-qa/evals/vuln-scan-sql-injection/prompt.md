@@ -1,5 +1,6 @@
 ---
 name: vuln-scan-sql-injection
+plugins: ["../..", "../../../cardume-core"]
 tags: [trigger, safety]
 runs: 3
 max_turns: 10

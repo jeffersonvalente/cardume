@@ -50,7 +50,7 @@ If you add, remove or reclassify an agent or skill, update the counts sentence i
 
 ## What the validator blocks
 
-`scripts/validate.py` runs 18 checks on every pull request. It blocks:
+`scripts/validate.py` runs 19 checks on every pull request. It blocks:
 
 - **Identity:** names of clients, companies or people (a hashed list; get the hash for a new name
   with `python scripts/validate.py --hash <name>`), update or phone-home hosts, and legacy
@@ -69,6 +69,8 @@ If you add, remove or reclassify an agent or skill, update the counts sentence i
   - every agent has the subagent rule;
   - every agent appears in the routing table;
   - hooks point to scripts that exist;
+  - eval cases list their plugin and its dependencies, regex graders use `flags: i` instead of
+    `(?i)`, and every named scaffold script exists;
   - the counts sentence in `README.md` and `README.pt-BR.md` matches the files;
   - `docs/CHANGELOG.md` changes whenever `plugins/` changes.
 

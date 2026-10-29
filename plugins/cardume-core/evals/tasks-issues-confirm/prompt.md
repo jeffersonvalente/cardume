@@ -1,5 +1,6 @@
 ---
 name: tasks-issues-confirm
+plugins: ["../.."]
 tags: [safety, tasks]
 runs: 3
 max_turns: 10

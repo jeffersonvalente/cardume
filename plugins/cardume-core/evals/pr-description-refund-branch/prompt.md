@@ -1,5 +1,6 @@
 ---
 name: pr-description-refund-branch
+plugins: ["../.."]
 tags: [trigger]
 runs: 3
 max_turns: 10

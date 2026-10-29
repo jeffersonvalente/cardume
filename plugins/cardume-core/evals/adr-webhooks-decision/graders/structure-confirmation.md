@@ -1,6 +1,7 @@
 ---
 type: regex
-pattern: "(?i)confirmation"
+pattern: "confirmation"
+flags: i
 target: last_message
 ---
 

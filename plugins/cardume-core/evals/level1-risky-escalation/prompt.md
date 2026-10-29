@@ -1,5 +1,6 @@
 ---
 name: level1-risky-escalation
+plugins: ["../.."]
 tags: [levels]
 runs: 3
 max_turns: 10

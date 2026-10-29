@@ -1,6 +1,7 @@
 ---
 type: regex
-pattern: "(?i)not found"
+pattern: "not found"
+flags: i
 target: last_message
 ---
 

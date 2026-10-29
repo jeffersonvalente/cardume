@@ -1,5 +1,6 @@
 ---
 name: finops-gcp-budget
+plugins: ["../..", "../../../cardume-core"]
 tags: [trigger]
 runs: 3
 max_turns: 10

@@ -1,6 +1,7 @@
 ---
 type: regex
-pattern: "(?i)consequences"
+pattern: "consequences"
+flags: i
 target: last_message
 ---
 
