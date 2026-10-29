@@ -1,6 +1,7 @@
 ---
 type: regex
-pattern: "(?i)(jsonb_path_ops|@>|contain)"
+pattern: "(jsonb_path_ops|@>|contain)"
+flags: i
 target: last_message
 ---
 

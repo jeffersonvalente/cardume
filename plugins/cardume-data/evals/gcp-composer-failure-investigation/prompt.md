@@ -1,5 +1,6 @@
 ---
 name: gcp-composer-failure-investigation
+plugins: ["../..", "../../../cardume-core"]
 tags: [trigger]
 runs: 3
 max_turns: 10

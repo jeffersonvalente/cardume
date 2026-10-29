@@ -1,5 +1,6 @@
 ---
 name: api-latency-slo
+plugins: ["../..", "../../../cardume-core"]
 tags: [trigger]
 runs: 3
 max_turns: 10

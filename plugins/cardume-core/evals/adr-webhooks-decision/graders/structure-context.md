@@ -1,6 +1,7 @@
 ---
 type: regex
-pattern: "(?i)context"
+pattern: "context"
+flags: i
 target: last_message
 ---
 

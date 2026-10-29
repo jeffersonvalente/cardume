@@ -1,5 +1,6 @@
 ---
 name: release-after-gate
+plugins: ["../.."]
 tags: [safety, smoke]
 runs: 3
 max_turns: 10

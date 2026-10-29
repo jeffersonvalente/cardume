@@ -1,5 +1,6 @@
 ---
 name: prd-to-specs-not-tasks
+plugins: ["../.."]
 tags: [levels]
 runs: 3
 max_turns: 10

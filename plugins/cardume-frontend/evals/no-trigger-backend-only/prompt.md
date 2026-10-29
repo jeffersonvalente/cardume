@@ -1,5 +1,6 @@
 ---
 name: no-trigger-backend-only
+plugins: ["../..", "../../../cardume-core"]
 tags: [negative]
 runs: 3
 max_turns: 10

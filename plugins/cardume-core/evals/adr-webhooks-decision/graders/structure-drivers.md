@@ -1,6 +1,7 @@
 ---
 type: regex
-pattern: "(?i)decision drivers|drivers"
+pattern: "decision drivers|drivers"
+flags: i
 target: last_message
 ---
 

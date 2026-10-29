@@ -6,7 +6,16 @@ All notable changes to Cardume are documented here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+- Evals of the plugins that depend on `cardume-core` ran without the plugin loaded: the dependency was
+  missing, so the plugin did not load and both arms were plain Claude. Every case now lists its plugin
+  and its dependencies, and evals run from `plugins/` with `--eval-dir` (#2).
+- Eight regex graders used inline `(?i)`, which JavaScript regex doesn't support; they use `flags: i`.
+- Three cases that point at a project file now create it with a `scaffold_script`.
+
 ### Added
+- Validator check (now 19): eval cases must list their plugin and dependencies, regex graders can't
+  use `(?i)`, and named scaffold scripts must exist.
 - Team rollout: a committed `.claude/settings.json` installs Cardume for everyone who opens the
   repository, and managed settings can require it across an organization (README and
   `docs/CONFIGURATION.md`).

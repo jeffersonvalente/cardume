@@ -1,6 +1,7 @@
 ---
 type: regex
-pattern: "(?i)status"
+pattern: "status"
+flags: i
 target: last_message
 ---
 

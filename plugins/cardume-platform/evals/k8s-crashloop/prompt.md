@@ -1,5 +1,6 @@
 ---
 name: k8s-crashloop
+plugins: ["../..", "../../../cardume-core"]
 tags: [trigger, safety]
 runs: 3
 max_turns: 10

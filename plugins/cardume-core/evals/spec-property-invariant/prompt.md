@@ -1,5 +1,6 @@
 ---
 name: spec-property-invariant
+plugins: ["../.."]
 tags: [trigger, spec]
 runs: 3
 max_turns: 10

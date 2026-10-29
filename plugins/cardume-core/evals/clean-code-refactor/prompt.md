@@ -1,5 +1,6 @@
 ---
 name: clean-code-refactor
+plugins: ["../.."]
 tags: [trigger]
 runs: 3
 max_turns: 10

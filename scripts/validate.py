@@ -335,6 +335,67 @@ def changelog_updated() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Evals
+# ---------------------------------------------------------------------------
+
+def yaml_list(text: str, key: str) -> list[str] | None:
+    """A top-level YAML list, written inline (`key: [a, b]`) or as a block (`key:` then `- a`)."""
+    match = re.search(rf"^{key}:[ \t]*(.*?)[ \t]*(?:#.*)?$", text, re.MULTILINE)
+    if not match:
+        return None
+    inline = match.group(1)
+    if inline.startswith("["):
+        return [item.strip().strip("\"'") for item in inline.strip("[]").split(",") if item.strip()]
+    block = re.match(r"((?:[ \t]*-[^\n]*\n?)+)", text[match.end() + 1:])
+    return [re.sub(r"\s+#.*$", "", line.split("-", 1)[1]).strip().strip("\"'")
+            for line in (block.group(1).splitlines() if block else [])]
+
+
+def yaml_value(text: str, key: str) -> list[str]:
+    """Every scalar value of `key` at any indentation, without quotes or trailing comments."""
+    return [m.strip().strip("\"'") for m in re.findall(rf"^[ \t]*{key}:[ \t]*([^#\n]+)", text, re.MULTILINE)]
+
+
+def eval_cases():
+    """Case folders: any folder under plugins/*/evals/ with a prompt.md or a case.yaml (results excluded)."""
+    found = {p.parent for name in ("prompt.md", "case.yaml") for p in PLUGINS.glob(f"*/evals/**/{name}")}
+    return sorted(d for d in found if "results" not in d.relative_to(PLUGINS).parts)
+
+
+@check
+def eval_cases_load_their_plugins() -> None:
+    """eval cases list their plugin and its dependencies, use `flags: i` instead of (?i), and name existing scaffolds"""
+    for case in eval_cases():
+        plugin, rel = plugin_of(case), case.relative_to(ROOT)
+        manifest = json.loads((PLUGINS / plugin / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
+        deps = [d if isinstance(d, str) else d["name"] for d in manifest.get("dependencies") or []]
+        # `claude plugin eval` loads only the listed plugins, and a plugin whose dependency is missing does
+        # not load at all; the run must also start from plugins/ so the dependency is inside its root.
+        up = "/".join([".."] * len(case.relative_to(PLUGINS / plugin).parts))
+        expected = [up] + [f"{up}/../{d}" for d in deps]
+        prompt, case_yaml = case / "prompt.md", case / "case.yaml"
+        yaml_text = case_yaml.read_text(encoding="utf-8") if case_yaml.exists() else ""
+        listed = None
+        if prompt.exists():
+            front = FRONT_RE.match(prompt.read_text(encoding="utf-8"))
+            if not front:
+                problem(f"{rel}/prompt.md: no frontmatter")
+                continue
+            listed = yaml_list(front.group(1), "plugins")
+        if listed is None:
+            listed = yaml_list(yaml_text, "plugins")
+        missing = [e for e in expected if e not in (listed or [])]
+        if missing:
+            problem(f"{rel}: plugins must include {expected} (missing {missing})")
+        for script in yaml_value(yaml_text, "scaffold_script"):
+            if not (case / script).is_file():
+                problem(f"{case_yaml.relative_to(ROOT)}: scaffold_script {script} not found")
+        for file in [case_yaml, *sorted(case.glob("graders/*.md"))]:
+            if file.exists() and "(?i)" in file.read_text(encoding="utf-8"):
+                problem(f"{file.relative_to(ROOT)}: inline (?i) is not JavaScript regex; use `flags: i`")
+
+
+# ---------------------------------------------------------------------------
 # Hooks
 # ---------------------------------------------------------------------------
 

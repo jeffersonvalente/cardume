@@ -1,5 +1,6 @@
 ---
 name: debug-intermittent-500
+plugins: ["../.."]
 tags: [trigger, smoke]
 runs: 3
 max_turns: 10

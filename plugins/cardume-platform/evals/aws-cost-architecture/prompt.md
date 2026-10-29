@@ -1,5 +1,6 @@
 ---
 name: aws-cost-architecture
+plugins: ["../..", "../../../cardume-core"]
 tags: [trigger]
 runs: 3
 max_turns: 10

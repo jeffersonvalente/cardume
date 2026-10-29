@@ -1,5 +1,6 @@
 ---
 name: tdd-legacy-bugfix
+plugins: ["../..", "../../../cardume-core"]
 tags: [trigger, discipline]
 runs: 3
 max_turns: 10

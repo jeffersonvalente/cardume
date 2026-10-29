@@ -1,5 +1,6 @@
 ---
 name: plan-csv-export
+plugins: ["../.."]
 tags: [trigger]
 runs: 3
 max_turns: 10

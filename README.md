@@ -162,10 +162,11 @@ The full list, with one line per item, is in [docs/CATALOG.md](docs/CATALOG.md).
 Each plugin has cases in `evals/` for `claude plugin eval`. A case is a realistic prompt plus
 graders: did the right skill load, did a destructive command stay unrun, does the answer meet a
 written rubric scored by a judge model. Each case runs with and without the plugin, so the score is
-a difference, not an absolute.
+a difference, not an absolute. For the plugins built on `cardume-core`, that difference is core plus
+plugin versus plain Claude.
 
 ```bash
-cd plugins/cardume-qa && claude plugin eval . --runs 3 --no-publish
+cd plugins && claude plugin eval . --eval-dir cardume-qa/evals --scaffold --runs 3 --no-publish
 ```
 
 What they don't cover: the hooks (deterministic scripts, not evaluated by a model), multi-step
@@ -214,7 +215,7 @@ Agents, hooks and the `cardume-*` commands are Claude Code only. See
 
 ## Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) for the layout, conventions and the 18 checks of
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for the layout, conventions and the 19 checks of
 `scripts/validate.py`, and [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) for writing a skill.
 Changes are listed in [docs/CHANGELOG.md](docs/CHANGELOG.md).
 

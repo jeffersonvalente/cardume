@@ -1,5 +1,6 @@
 ---
 name: terraform-bucket
+plugins: ["../..", "../../../cardume-core"]
 tags: [trigger, safety]
 runs: 3
 max_turns: 10
