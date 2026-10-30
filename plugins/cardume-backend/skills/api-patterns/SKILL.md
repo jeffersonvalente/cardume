@@ -1,6 +1,6 @@
 ---
 name: api-patterns
-description: "API design decision guide: choosing REST, GraphQL, or tRPC, response formats, versioning, pagination, auth, rate limiting, and API security testing. Use when designing a new API, reviewing endpoint contracts, or deciding between API styles."
+description: "Chooses REST, GraphQL or tRPC and sets versioning, pagination, auth and rate limits. Use when designing an API or reviewing endpoint contracts."
 allowed-tools: Read Write Edit Glob Grep
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

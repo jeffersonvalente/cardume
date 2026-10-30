@@ -1,6 +1,6 @@
 ---
 name: geo-fundamentals
-description: "Optimizes content for citation in AI answer engines (ChatGPT, Claude, Perplexity, Gemini): entity clarity, citable statistics, FAQs, author credentials, AI crawler access. Use when improving AI search visibility or running a GEO audit on a site."
+description: "Optimizes content for citation in AI answer engines. Use when improving AI search visibility or running a GEO audit."
 allowed-tools: Read Glob Grep
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

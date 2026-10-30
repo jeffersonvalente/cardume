@@ -1,6 +1,6 @@
 ---
 name: plan-writing
-description: Principles for writing short, specific plans of 5-10 verifiable tasks with dependencies, project-specific verification scripts, and a final verification phase. Use when breaking down a new project, feature, complex bug fix, or multi-file refactor into a plan file.
+description: "Writes a short plan file of 5-10 verifiable tasks with dependencies. Use when breaking down a new project, feature, complex bug fix or multi-file refactor."
 allowed-tools: Read Glob Grep
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

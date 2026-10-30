@@ -1,6 +1,6 @@
 ---
 name: clean-code
-description: Pragmatic coding standards (SRP, DRY, KISS, YAGNI, naming, small functions, no needless comments or over-engineering) plus a pre-edit dependency check, a completion self-check, and which cardume-* verification script each agent runs. Use when writing, editing, or finishing code changes.
+description: "Coding standards (SRP, DRY, KISS, YAGNI, naming) with a pre-edit dependency check and a completion self-check. Use when writing, editing or finishing code."
 allowed-tools: Read Write Edit
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

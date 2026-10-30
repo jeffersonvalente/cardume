@@ -1,6 +1,6 @@
 ---
 name: gcp-observability-patterns
-description: "Read-only GCP investigation for data platforms via Logging, Monitoring, Storage, gcloud and catalog tools: Composer DAG failures, BigQuery job errors, slot/cost spikes, missing landing files, audit logs, project discovery. Use when diagnosing a GCP data platform from telemetry."
+description: "Read-only GCP investigation: Composer failures, BigQuery job errors, slot and cost spikes, missing files, audit logs. Use when diagnosing a GCP data platform from telemetry."
 allowed-tools: Read Bash
 ---
 

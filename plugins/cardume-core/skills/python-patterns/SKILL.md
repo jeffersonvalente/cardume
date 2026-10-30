@@ -1,6 +1,6 @@
 ---
 name: python-patterns
-description: Python decision guide for choosing a framework (Django, FastAPI, Flask), async vs sync, type hints and Pydantic, project structure, background tasks, error handling, and testing. Use when starting or structuring a Python project or making Python architecture choices.
+description: "Picks a Python framework, async model and project structure, with typing and testing guidance. Use when starting or structuring a Python project."
 allowed-tools: Read Write Edit Glob Grep
 ---
 

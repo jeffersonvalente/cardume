@@ -30,7 +30,7 @@ You rarely call any of these by name. Claude picks agents and skills from their 
 
 | Agent | Purpose |
 | --- | --- |
-| [`design-flow`](../plugins/cardume-frontend/agents/design-flow.md) | Design director that runs the design flow (shape, craft, critique, audit, polish) and writes production-grade UI code. |
+| [`design-flow`](../plugins/cardume-frontend/agents/design-flow.md) | Designs and iterates on frontend UI through shape, craft, critique, audit and polish, writing production code. |
 | [`frontend-specialist`](../plugins/cardume-frontend/agents/frontend-specialist.md) | Senior frontend architect that implements maintainable React/Next.js code with a performance-first mindset. |
 | [`mobile-developer`](../plugins/cardume-frontend/agents/mobile-developer.md) | Builds cross-platform mobile apps with React Native, Expo, and Flutter, applying touch, performance, offline, security, and platform conventions and verifying with real builds. |
 | [`performance-optimizer`](../plugins/cardume-frontend/agents/performance-optimizer.md) | Profiles and optimizes web performance: Core Web Vitals (LCP, INP, CLS), bundle size, rendering, network, and memory. |
@@ -86,98 +86,98 @@ Skills load when a request matches their description. You can also call any of t
 
 | Skill | Purpose |
 | --- | --- |
-| [`adr`](../plugins/cardume-core/skills/adr/SKILL.md) | Records an Architecture Decision Record in docs/adr/ (MADR-style: drivers, options, decision, consequences, confirmation) and keeps the index current. |
-| [`app-builder`](../plugins/cardume-core/skills/app-builder/SKILL.md) | Builds a new full-stack, mobile, desktop, CLI, or extension app from a natural-language request by detecting project type, choosing the tech stack, scaffolding from templates, and coordinating specialist agents. |
-| [`architecture`](../plugins/cardume-core/skills/architecture/SKILL.md) | Architecture decision framework covering context discovery questions, trade-off analysis and pattern selection (monolith vs microservices, layering, event-driven); ADRs are recorded via the adr skill. |
-| [`bash-linux`](../plugins/cardume-core/skills/bash-linux/SKILL.md) | Bash patterns for Linux and macOS covering command chaining, file and text operations, process and network commands, error handling, and script templates. |
-| [`behavioral-modes`](../plugins/cardume-core/skills/behavioral-modes/SKILL.md) | Defines working modes (brainstorm, implement, debug, review, teach, ship, plus multi-agent explore and plan-execute-critic) with the behavior and output style for each. |
-| [`brainstorming`](../plugins/cardume-core/skills/brainstorming/SKILL.md) | Clarifying-question protocol (purpose, users, scope, trade-offs) plus progress, error, and completion messaging patterns. |
-| [`clean-code`](../plugins/cardume-core/skills/clean-code/SKILL.md) | Pragmatic coding standards (SRP, DRY, KISS, YAGNI, naming, small functions, no needless comments or over-engineering) plus a pre-edit dependency check, a completion self-check, and which cardume-* verification script each agent runs. |
-| [`code-review-checklist`](../plugins/cardume-core/skills/code-review-checklist/SKILL.md) | Code review checklist covering correctness, security (injection, XSS, secrets, prompt injection), performance, code quality, testing, and docs, with severity-tagged comment conventions. |
-| [`database-design`](../plugins/cardume-core/skills/database-design/SKILL.md) | Database decision guide for choosing a database (PostgreSQL, Neon, Turso, SQLite) and ORM (Drizzle, Prisma, Kysely), schema design and normalization, indexing, and safe migrations. |
-| [`documentation-templates`](../plugins/cardume-core/skills/documentation-templates/SKILL.md) | Structure templates for READMEs, API endpoint docs, code comments (JSDoc/docstrings), changelogs, ADRs, and AI-friendly docs such as llms.txt. |
-| [`gate`](../plugins/cardume-core/skills/gate/SKILL.md) | Runs a phase or milestone gate: checks every acceptance criterion of the PRD/spec against executed evidence, writes docs/gates/GATE-<id>.md with a pass/fail table and an APPROVE/REJECT recommendation, and leaves the decision to the user. |
-| [`generator-pr-description`](../plugins/cardume-core/skills/generator-pr-description/SKILL.md) | Drafts a consolidated PR title and body from the branch's full diff and commits vs its base (repo PR template or built-in), in the user's or project's language (e.g. |
-| [`implement`](../plugins/cardume-core/skills/implement/SKILL.md) | Builds an approved tasks.md one task at a time: a fresh subagent per task, the task's verification command run after each, the diff checked by a separate reviewer, the checkbox ticked only with evidence. |
-| [`intelligent-routing`](../plugins/cardume-core/skills/intelligent-routing/SKILL.md) *(internal)* | Domain → agent routing table for the Cardume suite. |
-| [`lint-and-validate`](../plugins/cardume-core/skills/lint-and-validate/SKILL.md) | Lint, type-check, and security-scan commands per ecosystem (ESLint, tsc, npm audit, Ruff, Bandit, MyPy) and a fix-and-rerun quality loop. |
-| [`parallel-agents`](../plugins/cardume-core/skills/parallel-agents/SKILL.md) | Patterns for running Cardume specialist agents through Claude Code's Agent tool, covering single, sequential, and parallel invocation, context passing, and synthesizing results into one report. |
-| [`plan-writing`](../plugins/cardume-core/skills/plan-writing/SKILL.md) | Principles for writing short, specific plans of 5-10 verifiable tasks with dependencies, project-specific verification scripts, and a final verification phase. |
-| [`powershell-windows`](../plugins/cardume-core/skills/powershell-windows/SKILL.md) | Windows PowerShell patterns and pitfalls such as parenthesizing cmdlets in logical operators, ASCII-only script output, ConvertTo-Json -Depth, paths, and error handling. |
-| [`prd`](../plugins/cardume-core/skills/prd/SKILL.md) | Writes a product requirements document in docs/prd/ (problem and evidence, success metrics, appetite, verifiable acceptance criteria, no-gos, typed risks, test script, blockers) for a new product, project or phase. |
-| [`python-patterns`](../plugins/cardume-core/skills/python-patterns/SKILL.md) | Python decision guide for choosing a framework (Django, FastAPI, Flask), async vs sync, type hints and Pydantic, project structure, background tasks, error handling, and testing. |
-| [`review`](../plugins/cardume-core/skills/review/SKILL.md) | Reviews a change with parallel specialist reviewers chosen from the touched files, drops low-confidence findings, verifies each remaining one against the code, and flags specs left outdated by the change. |
-| [`spec`](../plugins/cardume-core/skills/spec/SKILL.md) | Specifies a feature before building it: asks the questions that change the design, then writes docs/specs/<slug>/spec.md with testable EARS requirements, acceptance criteria, design notes and non-goals. |
-| [`standards`](../plugins/cardume-core/skills/standards/SKILL.md) | Scans the repository and writes docs/standards.md with the project's actual conventions (stack, layout, naming, errors, tests, lint, commits, CI), each backed by evidence. |
-| [`systematic-debugging`](../plugins/cardume-core/skills/systematic-debugging/SKILL.md) | Systematic 4-phase debugging (reproduce, isolate, understand root cause, fix and verify) with evidence templates and a 5 Whys analysis. |
-| [`tasks`](../plugins/cardume-core/skills/tasks/SKILL.md) | Breaks an approved spec into small ordered tasks in docs/specs/<slug>/tasks.md, each with requirement IDs, an owner agent/lane, contracts it depends on and a verification command; --issues also opens GitHub issues after confirmation. |
-| [`verify`](../plugins/cardume-core/skills/verify/SKILL.md) | Checks an implementation against every requirement of its spec by executing each acceptance criterion, records evidence in docs/specs/<slug>/verify.md, lists gaps and proposes spec amendments for drift. |
+| [`adr`](../plugins/cardume-core/skills/adr/SKILL.md) | Records a decision in docs/adr/ with options and consequences, and updates the index. |
+| [`app-builder`](../plugins/cardume-core/skills/app-builder/SKILL.md) | Scaffolds a new app from a plain request: picks the stack and coordinates specialists. |
+| [`architecture`](../plugins/cardume-core/skills/architecture/SKILL.md) | Weighs trade-offs and picks patterns (monolith or microservices, layering, events). |
+| [`bash-linux`](../plugins/cardume-core/skills/bash-linux/SKILL.md) | Bash patterns and script templates for Linux and macOS. |
+| [`behavioral-modes`](../plugins/cardume-core/skills/behavioral-modes/SKILL.md) | Working modes (brainstorm, implement, debug, review, teach, ship) and the output style of each. |
+| [`brainstorming`](../plugins/cardume-core/skills/brainstorming/SKILL.md) | Asks the clarifying questions that shape a vague idea: purpose, users, scope, trade-offs. |
+| [`clean-code`](../plugins/cardume-core/skills/clean-code/SKILL.md) | Coding standards (SRP, DRY, KISS, YAGNI, naming) with a pre-edit dependency check and a completion self-check. |
+| [`code-review-checklist`](../plugins/cardume-core/skills/code-review-checklist/SKILL.md) | Checklist for correctness, security, performance and tests, with severity-tagged comments. |
+| [`database-design`](../plugins/cardume-core/skills/database-design/SKILL.md) | Picks a database and ORM, designs schemas and indexes, plans safe migrations. |
+| [`documentation-templates`](../plugins/cardume-core/skills/documentation-templates/SKILL.md) | Structure templates for READMEs, API docs, code comments, changelogs and llms.txt. |
+| [`gate`](../plugins/cardume-core/skills/gate/SKILL.md) | Checks every acceptance criterion against executed evidence and writes a report in docs/gates/ with an APPROVE/REJECT recommendation. |
+| [`generator-pr-description`](../plugins/cardume-core/skills/generator-pr-description/SKILL.md) | Drafts a PR title and body from the branch's full diff, then creates or updates the PR after confirmation. |
+| [`implement`](../plugins/cardume-core/skills/implement/SKILL.md) | Builds an approved tasks.md one task at a time, with a fresh subagent, a verification command and a separate reviewer. |
+| [`intelligent-routing`](../plugins/cardume-core/skills/intelligent-routing/SKILL.md) *(internal)* | Domain-to-agent routing table. |
+| [`lint-and-validate`](../plugins/cardume-core/skills/lint-and-validate/SKILL.md) | Lint, type-check and security-scan commands per ecosystem, with a fix-and-rerun loop. |
+| [`parallel-agents`](../plugins/cardume-core/skills/parallel-agents/SKILL.md) | Runs Cardume agents singly, in sequence or in parallel and merges the results. |
+| [`plan-writing`](../plugins/cardume-core/skills/plan-writing/SKILL.md) | Writes a short plan file of 5-10 verifiable tasks with dependencies. |
+| [`powershell-windows`](../plugins/cardume-core/skills/powershell-windows/SKILL.md) | Windows PowerShell pitfalls: logical operators, ASCII output, ConvertTo-Json depth, paths, errors. |
+| [`prd`](../plugins/cardume-core/skills/prd/SKILL.md) | Writes a PRD in docs/prd/ with metrics, acceptance criteria, no-gos, risks and blockers. |
+| [`python-patterns`](../plugins/cardume-core/skills/python-patterns/SKILL.md) | Picks a Python framework, async model and project structure, with typing and testing guidance. |
+| [`review`](../plugins/cardume-core/skills/review/SKILL.md) | Reviews a change with parallel specialist reviewers, verifies each finding against the code and flags outdated specs. |
+| [`spec`](../plugins/cardume-core/skills/spec/SKILL.md) | Asks the questions that change the design, then writes a spec in docs/specs/ with testable requirements and non-goals. |
+| [`standards`](../plugins/cardume-core/skills/standards/SKILL.md) | Scans the repository and writes docs/standards.md with its real conventions, each backed by evidence. |
+| [`systematic-debugging`](../plugins/cardume-core/skills/systematic-debugging/SKILL.md) | Four-phase debugging: reproduce, isolate, find the root cause, fix and verify. |
+| [`tasks`](../plugins/cardume-core/skills/tasks/SKILL.md) | Breaks an approved spec into ordered tasks in tasks.md, each with an owner and a verification command, optionally opening GitHub issues. |
+| [`verify`](../plugins/cardume-core/skills/verify/SKILL.md) | Runs every acceptance criterion of a spec and records evidence in verify.md, listing gaps. |
 
 ### cardume-frontend
 
 | Skill | Purpose |
 | --- | --- |
 | [`design-flow`](../plugins/cardume-frontend/skills/design-flow/SKILL.md) | Designs and iterates on frontend interfaces through a shape, craft, critique, audit, and polish flow, writing production-grade code for websites, landing pages, dashboards, product UI, app shells, components, forms, settings, onboarding, and empty states. |
-| [`frontend-design`](../plugins/cardume-frontend/skills/frontend-design/SKILL.md) | Applies design thinking to web UI decisions: constraints, UX psychology, layout, color, typography, effects, and motion, with anti-cliché checks. |
-| [`geo-fundamentals`](../plugins/cardume-frontend/skills/geo-fundamentals/SKILL.md) | Optimizes content for citation in AI answer engines (ChatGPT, Claude, Perplexity, Gemini): entity clarity, citable statistics, FAQs, author credentials, AI crawler access. |
-| [`i18n-localization`](../plugins/cardume-frontend/skills/i18n-localization/SKILL.md) | Applies internationalization and localization patterns: detecting hardcoded strings, structuring locale files, pluralization, date/number formatting, and RTL support. |
-| [`mobile-design`](../plugins/cardume-frontend/skills/mobile-design/SKILL.md) | Guides mobile-first design and implementation decisions for iOS and Android: touch targets, thumb zone, list and animation performance, offline, security, navigation, and platform conventions. |
-| [`performance-profiling`](../plugins/cardume-frontend/skills/performance-profiling/SKILL.md) | Measures and analyzes performance before optimizing: Core Web Vitals, Lighthouse, bundle analysis, runtime and memory profiling. |
-| [`react-best-practices`](../plugins/cardume-frontend/skills/react-best-practices/SKILL.md) | Applies Vercel Engineering's React and Next.js performance rules: eliminating waterfalls, bundle size, server-side performance, client data fetching, re-renders, and rendering. |
-| [`react-native-skills`](../plugins/cardume-frontend/skills/react-native-skills/SKILL.md) | Applies React Native and Expo performance and correctness rules: list virtualization, animations, navigation, images, and native modules. |
-| [`seo-fundamentals`](../plugins/cardume-frontend/skills/seo-fundamentals/SKILL.md) | Applies SEO fundamentals: E-E-A-T, Core Web Vitals, technical SEO, meta tags, schema markup, and content structure. |
-| [`site-building`](../plugins/cardume-frontend/skills/site-building/SKILL.md) | Runs website delivery: brief, sitemap, static-first stack, design-flow design handoff, build, SEO, LGPD/GDPR consent, quality gates, launch. |
-| [`tailwind-patterns`](../plugins/cardume-frontend/skills/tailwind-patterns/SKILL.md) | Applies Tailwind CSS v4 patterns: CSS-first @theme configuration, design token architecture, container queries, dark mode, and responsive utilities. |
-| [`web-design-guidelines`](../plugins/cardume-frontend/skills/web-design-guidelines/SKILL.md) | Reviews UI code against the Web Interface Guidelines for accessibility, focus states, forms, animation, typography, and performance. |
+| [`frontend-design`](../plugins/cardume-frontend/skills/frontend-design/SKILL.md) | Design principles for web UI: constraints, layout, color, typography, motion, anti-cliché checks. |
+| [`geo-fundamentals`](../plugins/cardume-frontend/skills/geo-fundamentals/SKILL.md) | Optimizes content for citation in AI answer engines. |
+| [`i18n-localization`](../plugins/cardume-frontend/skills/i18n-localization/SKILL.md) | Finds hardcoded strings and structures locales, plurals, formats and RTL. |
+| [`mobile-design`](../plugins/cardume-frontend/skills/mobile-design/SKILL.md) | Mobile UX for iOS and Android: touch targets, lists, offline, navigation, platform conventions. |
+| [`performance-profiling`](../plugins/cardume-frontend/skills/performance-profiling/SKILL.md) | Measures before optimizing: Core Web Vitals, Lighthouse, bundle, runtime and memory profiling. |
+| [`react-best-practices`](../plugins/cardume-frontend/skills/react-best-practices/SKILL.md) | React and Next.js performance rules: waterfalls, bundle size, server rendering, re-renders. |
+| [`react-native-skills`](../plugins/cardume-frontend/skills/react-native-skills/SKILL.md) | React Native and Expo rules for lists, animations, navigation, images and native modules. |
+| [`seo-fundamentals`](../plugins/cardume-frontend/skills/seo-fundamentals/SKILL.md) | SEO essentials: E-E-A-T, technical SEO, metadata, schema markup. |
+| [`site-building`](../plugins/cardume-frontend/skills/site-building/SKILL.md) | Runs website delivery from brief to launch: sitemap, static-first stack, SEO, LGPD/GDPR consent, quality gates. |
+| [`tailwind-patterns`](../plugins/cardume-frontend/skills/tailwind-patterns/SKILL.md) | Tailwind CSS v4 with @theme tokens, container queries and dark mode. |
+| [`web-design-guidelines`](../plugins/cardume-frontend/skills/web-design-guidelines/SKILL.md) | Reviews UI code against the Web Interface Guidelines. |
 
 ### cardume-backend
 
 | Skill | Purpose |
 | --- | --- |
-| [`api-patterns`](../plugins/cardume-backend/skills/api-patterns/SKILL.md) | API design decision guide: choosing REST, GraphQL, or tRPC, response formats, versioning, pagination, auth, rate limiting, and API security testing. |
-| [`java-spring-patterns`](../plugins/cardume-backend/skills/java-spring-patterns/SKILL.md) | Guides Java 17+ and Spring Boot 3.x/4.x work: architecture choice (layered, hexagonal, DDD, modular monolith, CQRS, events), idioms the JDK baseline allows (records, sealed types, pattern matching, virtual threads), Spring transactions, DI and errors, Testcontainers, ArchUnit, Micrometer. |
-| [`mcp-builder`](../plugins/cardume-backend/skills/mcp-builder/SKILL.md) | Principles for building MCP (Model Context Protocol) servers: tool design, resource and prompt patterns, input schemas, error handling, and security. |
-| [`nodejs-best-practices`](../plugins/cardume-backend/skills/nodejs-best-practices/SKILL.md) | Node.js decision guide: framework selection, async patterns, error handling, security, and project architecture, focused on reasoning over copy-paste templates. |
-| [`rust-pro`](../plugins/cardume-backend/skills/rust-pro/SKILL.md) | Modern Rust (edition 2024) guidance: async with Tokio and axum, advanced type-system features, error handling, performance, and production systems programming. |
+| [`api-patterns`](../plugins/cardume-backend/skills/api-patterns/SKILL.md) | Chooses REST, GraphQL or tRPC and sets versioning, pagination, auth and rate limits. |
+| [`java-spring-patterns`](../plugins/cardume-backend/skills/java-spring-patterns/SKILL.md) | Java 17+ and Spring Boot 3/4 architecture, idioms, transactions and testing. |
+| [`mcp-builder`](../plugins/cardume-backend/skills/mcp-builder/SKILL.md) | MCP server tool design, schemas, errors and security. |
+| [`nodejs-best-practices`](../plugins/cardume-backend/skills/nodejs-best-practices/SKILL.md) | Picks Node.js frameworks and async, error and security patterns. |
+| [`rust-pro`](../plugins/cardume-backend/skills/rust-pro/SKILL.md) | Rust 2024 with Tokio and axum: async, types, errors, performance. |
 
 ### cardume-data
 
 | Skill | Purpose |
 | --- | --- |
-| [`airflow-testing`](../plugins/cardume-data/skills/airflow-testing/SKILL.md) | Testing and CI for Airflow DAGs (Airflow 3 with 2.x notes, Cloud Composer): DagBag parse tests, DAG property tests, top-level code hazards, Ruff AIR rules, credential-free CI. |
-| [`bigquery-patterns`](../plugins/cardume-data/skills/bigquery-patterns/SKILL.md) | BigQuery SQL discipline: dry runs, byte caps, partition and column pruning, safe joins and casts, job timeouts, before/after integrity checks. |
-| [`gcp-observability-patterns`](../plugins/cardume-data/skills/gcp-observability-patterns/SKILL.md) | Read-only GCP investigation for data platforms via Logging, Monitoring, Storage, gcloud and catalog tools: Composer DAG failures, BigQuery job errors, slot/cost spikes, missing landing files, audit logs, project discovery. |
-| [`lakehouse-architecture`](../plugins/cardume-data/skills/lakehouse-architecture/SKILL.md) | Medallion lakehouse design on BigQuery: layer contracts, naming, dimensional modeling (dim_/fct_ defaults), lineage and change propagation. |
+| [`airflow-testing`](../plugins/cardume-data/skills/airflow-testing/SKILL.md) | Tests and CI for Airflow DAGs (Airflow 3, Cloud Composer): parse and property tests, top-level hazards, Ruff AIR rules. |
+| [`bigquery-patterns`](../plugins/cardume-data/skills/bigquery-patterns/SKILL.md) | BigQuery SQL discipline: dry runs, byte caps, pruning, safe joins, integrity checks. |
+| [`gcp-observability-patterns`](../plugins/cardume-data/skills/gcp-observability-patterns/SKILL.md) | Read-only GCP investigation: Composer failures, BigQuery job errors, slot and cost spikes, missing files, audit logs. |
+| [`lakehouse-architecture`](../plugins/cardume-data/skills/lakehouse-architecture/SKILL.md) | Medallion lakehouse on BigQuery: layers, naming, dimensional modeling, lineage. |
 
 ### cardume-platform
 
 | Skill | Purpose |
 | --- | --- |
-| [`cloud-architecture-best-practices`](../plugins/cardume-platform/skills/cloud-architecture-best-practices/SKILL.md) | Reviews or proposes cloud workload designs as short decision records weighing cost, complexity, reliability and operability, with provider-grounded cost levers for AWS, GCP and Azure. |
-| [`cloud-platform-assessment`](../plugins/cardume-platform/skills/cloud-platform-assessment/SKILL.md) | Runs a read-only, risk-based review of a whole cloud estate (AWS, GCP, Azure, Kubernetes) along the provider's Well-Architected pillars and returns evidence-backed risks plus a 30/60/90-day plan. |
-| [`deployment-procedures`](../plugins/cardume-platform/skills/deployment-procedures/SKILL.md) | Production deployment principles: safe rollout workflows, pre-deploy verification, rollback strategy, and post-deploy checks, focused on reasoning over fixed scripts. |
-| [`finops-budgeting`](../plugins/cardume-platform/skills/finops-budgeting/SKILL.md) | Builds and reviews cloud budgets, forecasts and guardrails with the FinOps Inform/Optimize/Operate model: FOCUS cost data, variance bridges, unit economics, forecast worksheet, commitments. |
-| [`kubernetes-operations`](../plugins/cardume-platform/skills/kubernetes-operations/SKILL.md) | Guides work on live Kubernetes clusters with kubectl (GKE, EKS, AKS, on-prem): incident triage, cluster review and inventory, and careful changes. |
-| [`observability-patterns`](../plugins/cardume-platform/skills/observability-patterns/SKILL.md) | Guides vendor-neutral observability: OpenTelemetry instrumentation and Collector pipelines, trace-correlated logs, RED/USE, SLOs with multi-burn-rate alerts, dashboards, sampling and cardinality cost control, and telemetry-driven incident investigation. |
-| [`project-bootstrap-assistant`](../plugins/cardume-platform/skills/project-bootstrap-assistant/SKILL.md) | Plans the technical/platform foundation of a new or inherited system as a decision log over landing-zone design areas, ending in a platform charter and 90-day backlog for devops-engineer. |
-| [`server-management`](../plugins/cardume-platform/skills/server-management/SKILL.md) | Server management principles: process management, monitoring strategy, log handling, and scaling decisions, focused on reasoning over commands. |
-| [`terraform-stacks`](../plugins/cardume-platform/skills/terraform-stacks/SKILL.md) | Generates Terraform root modules (stacks) for a project from bundled GCP module and stack templates, plus HCP Terraform Stacks guidance, without running terraform apply. |
+| [`cloud-architecture-best-practices`](../plugins/cardume-platform/skills/cloud-architecture-best-practices/SKILL.md) | Reviews or proposes cloud workload designs as short decision records weighing cost and reliability on AWS, GCP and Azure. |
+| [`cloud-platform-assessment`](../plugins/cardume-platform/skills/cloud-platform-assessment/SKILL.md) | Read-only, risk-based Well-Architected review of a whole cloud estate with a 30/60/90-day plan. |
+| [`deployment-procedures`](../plugins/cardume-platform/skills/deployment-procedures/SKILL.md) | Safe rollout, pre-deploy checks, rollback and post-deploy verification. |
+| [`finops-budgeting`](../plugins/cardume-platform/skills/finops-budgeting/SKILL.md) | Cloud budgets, forecasts, guardrails and unit economics with the FinOps model. |
+| [`kubernetes-operations`](../plugins/cardume-platform/skills/kubernetes-operations/SKILL.md) | Works on live clusters with kubectl: triage, review and careful changes, read-only by default. |
+| [`observability-patterns`](../plugins/cardume-platform/skills/observability-patterns/SKILL.md) | Vendor-neutral OpenTelemetry, SLOs, burn-rate alerts, dashboards and cardinality cost. |
+| [`project-bootstrap-assistant`](../plugins/cardume-platform/skills/project-bootstrap-assistant/SKILL.md) | Plans the platform foundation of a new or inherited system, ending in a charter and 90-day backlog. |
+| [`server-management`](../plugins/cardume-platform/skills/server-management/SKILL.md) | Linux server process management, monitoring, logs and scaling. |
+| [`terraform-stacks`](../plugins/cardume-platform/skills/terraform-stacks/SKILL.md) | Generates Terraform root modules from bundled GCP templates, without running apply. |
 
 ### cardume-qa
 
 | Skill | Purpose |
 | --- | --- |
-| [`red-team-tactics`](../plugins/cardume-qa/skills/red-team-tactics/SKILL.md) | Red team tactics based on MITRE ATT&CK: attack phases, initial access, persistence, lateral movement, detection evasion, and reporting. |
-| [`tdd-workflow`](../plugins/cardume-qa/skills/tdd-workflow/SKILL.md) | Test-driven development workflow using the red-green-refactor cycle. |
-| [`testing-patterns`](../plugins/cardume-qa/skills/testing-patterns/SKILL.md) | Testing patterns and principles: test pyramid, unit and integration tests, mocking strategies, fixtures, and test organization. |
-| [`vulnerability-scanner`](../plugins/cardume-qa/skills/vulnerability-scanner/SKILL.md) | Vulnerability analysis principles: OWASP Top 10 (2025), supply chain security, attack surface mapping, and risk prioritization, with an automated security scan. |
-| [`webapp-testing`](../plugins/cardume-qa/skills/webapp-testing/SKILL.md) | Web application testing: E2E strategy, Playwright scripts, visual and accessibility checks, and deep audits of a running site. |
+| [`red-team-tactics`](../plugins/cardume-qa/skills/red-team-tactics/SKILL.md) | MITRE ATT&CK-based adversary tactics and reporting. |
+| [`tdd-workflow`](../plugins/cardume-qa/skills/tdd-workflow/SKILL.md) | TDD red-green-refactor workflow. |
+| [`testing-patterns`](../plugins/cardume-qa/skills/testing-patterns/SKILL.md) | Test pyramid, mocking, fixtures and test organization. |
+| [`vulnerability-scanner`](../plugins/cardume-qa/skills/vulnerability-scanner/SKILL.md) | OWASP Top 10, supply chain and attack surface analysis with an automated scan. |
+| [`webapp-testing`](../plugins/cardume-qa/skills/webapp-testing/SKILL.md) | E2E strategy, Playwright scripts, and visual and accessibility checks. |
 
 ### cardume-games
 
 | Skill | Purpose |
 | --- | --- |
-| [`game-development`](../plugins/cardume-games/skills/game-development/SKILL.md) | Game development principles across engines: engine selection, game loop and architecture, input, physics, game feel, UI, audio, saves, performance, mobile, multiplayer, testing, accessibility and shipping. |
+| [`game-development`](../plugins/cardume-games/skills/game-development/SKILL.md) | Game engine choice, game loop, input, physics, game feel, saves and shipping. |
 
 ## Manual commands
 

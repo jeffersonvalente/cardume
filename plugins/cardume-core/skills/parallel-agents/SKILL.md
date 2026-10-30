@@ -1,6 +1,6 @@
 ---
 name: parallel-agents
-description: Patterns for running Cardume specialist agents through Claude Code's Agent tool, covering single, sequential, and parallel invocation, context passing, and synthesizing results into one report. Use when independent subtasks need different domain expertise or a review needs several perspectives (security, performance, testing).
+description: "Runs Cardume agents singly, in sequence or in parallel and merges the results. Use when subtasks need different expertise or a review needs several perspectives."
 allowed-tools: Read Glob Grep
 ---
 

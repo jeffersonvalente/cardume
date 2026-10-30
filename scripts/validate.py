@@ -209,7 +209,7 @@ TRIGGER_RE = re.compile(r"\buse (it |this |them )?(when|for|to|before|after|proa
 # Claude Code gives the skill listing 30,000 characters on a 1M context window and 6,000 on 200k, built-in
 # skills take about 7,000 of that, and agent descriptions are listed separately. Every skill line carries
 # its `plugin:name` prefix, so the ceiling counts the line, not just the description.
-SKILL_LISTING_BUDGET = 20_000
+SKILL_LISTING_BUDGET = 14_000
 QUOTES = "\"'"
 AGENT_DESCRIPTION_BUDGET = 12_000
 

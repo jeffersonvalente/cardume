@@ -1,6 +1,6 @@
 ---
 name: documentation-templates
-description: Structure templates for READMEs, API endpoint docs, code comments (JSDoc/docstrings), changelogs, ADRs, and AI-friendly docs such as llms.txt. Use when writing or restructuring project documentation.
+description: "Structure templates for READMEs, API docs, code comments, changelogs and llms.txt. Use when writing or restructuring project documentation."
 allowed-tools: Read Glob Grep
 ---
 

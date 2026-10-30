@@ -1,6 +1,6 @@
 ---
 name: bash-linux
-description: Bash patterns for Linux and macOS covering command chaining, file and text operations, process and network commands, error handling, and script templates. Use when running shell commands or writing Bash scripts on Linux or macOS.
+description: "Bash patterns and script templates for Linux and macOS. Use when writing Bash scripts or running non-trivial shell commands."
 allowed-tools: Read Write Edit Glob Grep Bash
 ---
 

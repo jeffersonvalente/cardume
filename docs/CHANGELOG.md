@@ -37,7 +37,9 @@ All notable changes to Cardume are documented here. The format follows
 ### Changed
 - Agents return the full text when the request is an analysis, plan, review or document. The ~250-word
   limit now applies only to reports on executed work: it was cutting deliverables down to a summary.
-- The description ceiling in the validator counts what Claude Code really lists: 20,000 characters for the
+- Skill descriptions are more than 40% shorter, with the trigger stated plainly and no lists of contents. The
+  listing drops from about 19,800 to about 12,000 characters.
+- The description ceiling in the validator counts what Claude Code really lists: 14,000 characters for the
   skill listing, with each `plugin:name` prefix, and 12,000 for agent descriptions, instead of 32,000 for
   both together.
 - README rewritten in English, opening with what Cardume adds (a specialist for each part of the job,

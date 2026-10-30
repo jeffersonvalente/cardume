@@ -1,6 +1,6 @@
 ---
 name: project-bootstrap-assistant
-description: "Plans the technical/platform foundation of a new or inherited system as a decision log over landing-zone design areas, ending in a platform charter and 90-day backlog for devops-engineer. Use when preparing the technical/platform foundation for a kickoff (not the PRD)."
+description: "Plans the platform foundation of a new or inherited system, ending in a charter and 90-day backlog. Use when preparing the technical foundation for a kickoff (not the PRD)."
 ---
 
 # Project Bootstrap Assistant

@@ -1,6 +1,6 @@
 ---
 name: kubernetes-operations
-description: "Guides work on live Kubernetes clusters with kubectl (GKE, EKS, AKS, on-prem): incident triage, cluster review and inventory, and careful changes. Read-only by default; every mutation is previewed with dry-run/diff and runs only after explicit confirmation. Use when diagnosing pods, nodes, rollouts or networking, or changing a running cluster."
+description: "Works on live clusters with kubectl: triage, review and careful changes, read-only by default. Use when diagnosing pods, nodes, rollouts or networking, or changing a running cluster."
 allowed-tools: Read Glob Grep
 ---
 

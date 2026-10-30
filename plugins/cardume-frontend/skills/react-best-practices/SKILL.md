@@ -1,6 +1,6 @@
 ---
 name: react-best-practices
-description: "Applies Vercel Engineering's React and Next.js performance rules: eliminating waterfalls, bundle size, server-side performance, client data fetching, re-renders, and rendering. Use when building or reviewing React components, optimizing a Next.js app, or reducing bundle size and render cost."
+description: "React and Next.js performance rules: waterfalls, bundle size, server rendering, re-renders. Use when building or reviewing React components or optimizing a Next.js app."
 allowed-tools: Read Write Edit Glob Grep Bash
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: i18n-localization
-description: "Applies internationalization and localization patterns: detecting hardcoded strings, structuring locale files, pluralization, date/number formatting, and RTL support. Use when adding translations, preparing an app for multiple languages, or auditing i18n coverage."
+description: "Finds hardcoded strings and structures locales, plurals, formats and RTL. Use when adding translations or auditing i18n coverage."
 allowed-tools: Read Glob Grep
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

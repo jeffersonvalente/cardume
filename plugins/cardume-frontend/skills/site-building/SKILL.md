@@ -1,6 +1,6 @@
 ---
 name: site-building
-description: "Runs website delivery: brief, sitemap, static-first stack, design-flow design handoff, build, SEO, LGPD/GDPR consent, quality gates, launch. Use when building or launching a landing page, company site, portfolio, blog, docs site or small store."
+description: "Runs website delivery from brief to launch: sitemap, static-first stack, SEO, LGPD/GDPR consent, quality gates. Use when building a landing page, company site, portfolio, blog, docs site or small store."
 allowed-tools: Read Write Edit Glob Grep Bash
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

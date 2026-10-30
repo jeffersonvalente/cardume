@@ -1,6 +1,6 @@
 ---
 name: game-development
-description: "Game development principles across engines: engine selection, game loop and architecture, input, physics, game feel, UI, audio, saves, performance, mobile, multiplayer, testing, accessibility and shipping. Use when building, structuring, tuning or debugging a 2D/3D game in Godot, Unity, Unreal, Phaser, Three.js, Bevy or similar."
+description: "Game engine choice, game loop, input, physics, game feel, saves and shipping. Use when building, tuning or debugging a 2D or 3D game in any engine."
 allowed-tools: Read Glob Grep
 ---
 

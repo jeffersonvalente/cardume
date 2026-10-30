@@ -1,6 +1,6 @@
 ---
 name: database-design
-description: Database decision guide for choosing a database (PostgreSQL, Neon, Turso, SQLite) and ORM (Drizzle, Prisma, Kysely), schema design and normalization, indexing, and safe migrations. Use when designing a schema, picking a database or ORM, adding indexes, or planning a migration.
+description: "Picks a database and ORM, designs schemas and indexes, plans safe migrations. Use when designing a schema, adding indexes or planning a migration."
 allowed-tools: Read Write Edit Glob Grep
 ---
 

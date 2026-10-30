@@ -1,6 +1,6 @@
 ---
 name: red-team-tactics
-description: "Red team tactics based on MITRE ATT&CK: attack phases, initial access, persistence, lateral movement, detection evasion, and reporting. Use when planning or reviewing an authorized red team engagement or adversary simulation."
+description: "MITRE ATT&CK-based adversary tactics and reporting. Use when planning or reviewing an authorized red team engagement."
 allowed-tools: Read Glob Grep
 ---
 

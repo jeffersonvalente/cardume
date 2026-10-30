@@ -1,6 +1,6 @@
 ---
 name: powershell-windows
-description: Windows PowerShell patterns and pitfalls such as parenthesizing cmdlets in logical operators, ASCII-only script output, ConvertTo-Json -Depth, paths, and error handling. Use when writing or running PowerShell commands or scripts on Windows.
+description: "Windows PowerShell pitfalls: logical operators, ASCII output, ConvertTo-Json depth, paths, errors. Use when writing or running PowerShell on Windows."
 allowed-tools: Read Write Edit Glob Grep Bash
 ---
 

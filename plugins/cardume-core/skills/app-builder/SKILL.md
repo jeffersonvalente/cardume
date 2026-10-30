@@ -1,6 +1,6 @@
 ---
 name: app-builder
-description: Builds a new full-stack, mobile, desktop, CLI, or extension app from a natural-language request by detecting project type, choosing the tech stack, scaffolding from templates, and coordinating specialist agents. Use when asked to create or scaffold an application from scratch or add a large feature to one.
+description: "Scaffolds a new app from a plain request: picks the stack and coordinates specialists. Use when asked to create a full-stack, mobile, desktop, CLI or extension app from scratch, or add a large feature to one."
 allowed-tools: Read Write Edit Glob Grep Bash Agent
 ---
 

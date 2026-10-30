@@ -1,6 +1,6 @@
 ---
 name: design-flow
-description: "Designs and iterates on frontend interfaces through a shape, craft, critique, audit, and polish flow, writing production-grade code for websites, landing pages, dashboards, product UI, app shells, components, forms, settings, onboarding, and empty states. Covers UX review, visual hierarchy, information architecture, cognitive load, accessibility, performance, responsive behavior, theming, typography, spacing, layout, color, motion, micro-interactions, UX copy, error states, edge cases, i18n, and design systems or tokens. Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, or extract UI; make a bland design bolder or a loud one quieter; iterate live in the browser; or build ambitious visual effects. Not for backend-only or non-UI tasks."
+description: "Designs and iterates on frontend UI through shape, craft, critique, audit and polish, writing production code. Use when the user wants to design, redesign, critique, polish or harden a page, dashboard or component, set a visual direction, or make it bolder or quieter. Not for backend-only tasks."
 argument-hint: "[subcommand] [target]"
 allowed-tools: Read Write Edit Glob Grep Bash
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."

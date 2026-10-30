@@ -1,6 +1,6 @@
 ---
 name: adr
-description: "Records an Architecture Decision Record in docs/adr/ (MADR-style: drivers, options, decision, consequences, confirmation) and keeps the index current. Use when a significant technical decision is made or changed, at any task size: choosing a database, framework, library, integration pattern, data model, infra component, or accepting a notable trade-off."
+description: "Records a decision in docs/adr/ with options and consequences, and updates the index. Use when a technical decision is made or changed, even in a small task: database, framework, integration, data model or a notable trade-off."
 allowed-tools: Read Glob Grep Write Edit
 ---
 

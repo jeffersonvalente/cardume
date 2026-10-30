@@ -1,6 +1,6 @@
 ---
 name: intelligent-routing
-description: Domain → agent routing table for the Cardume suite. Use when a request is ambiguous or spans several domains and it's unclear which Cardume agent should handle it, or when an orchestrator needs to pick specialists.
+description: "Domain-to-agent routing table. Use when a request spans several domains and it's unclear which Cardume agent should handle it."
 metadata:
   internal: "true"
 ---

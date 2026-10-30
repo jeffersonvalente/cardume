@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: Clarifying-question protocol (purpose, users, scope, trade-offs) plus progress, error, and completion messaging patterns. Use before implementing a vague "build/create X" request, a new feature, an architecture choice, or a change whose scope is unclear.
+description: "Asks the clarifying questions that shape a vague idea: purpose, users, scope, trade-offs. Use before building a vague \"create X\" request or a change with unclear scope."
 allowed-tools: Read Glob Grep
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: java-spring-patterns
-description: "Guides Java 17+ and Spring Boot 3.x/4.x work: architecture choice (layered, hexagonal, DDD, modular monolith, CQRS, events), idioms the JDK baseline allows (records, sealed types, pattern matching, virtual threads), Spring transactions, DI and errors, Testcontainers, ArchUnit, Micrometer. Use when building or reviewing Java/Spring Boot services."
+description: "Java 17+ and Spring Boot 3/4 architecture, idioms, transactions and testing. Use when building or reviewing Java or Spring Boot services."
 allowed-tools: Read Write Edit Glob Grep
 ---
 

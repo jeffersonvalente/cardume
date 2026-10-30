@@ -1,6 +1,6 @@
 ---
 name: implement
-description: "Builds an approved tasks.md one task at a time: a fresh subagent per task, the task's verification command run after each, the diff checked by a separate reviewer, the checkbox ticked only with evidence. Use to implement level-2/3 work once its tasks are approved."
+description: "Builds an approved tasks.md one task at a time, with a fresh subagent, a verification command and a separate reviewer. Use to implement level-2/3 work once its tasks are approved."
 argument-hint: "[path to tasks.md] [task id to start from]"
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

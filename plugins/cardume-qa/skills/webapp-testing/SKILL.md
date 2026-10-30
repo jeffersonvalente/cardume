@@ -1,6 +1,6 @@
 ---
 name: webapp-testing
-description: "Web application testing: E2E strategy, Playwright scripts, visual and accessibility checks, and deep audits of a running site. Use when testing a web app in a browser, writing Playwright tests, or auditing a deployed URL."
+description: "E2E strategy, Playwright scripts, and visual and accessibility checks. Use when testing a web app in a browser or auditing a deployed URL."
 allowed-tools: Read Write Edit Glob Grep Bash
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

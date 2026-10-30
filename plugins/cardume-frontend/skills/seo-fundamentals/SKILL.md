@@ -1,6 +1,6 @@
 ---
 name: seo-fundamentals
-description: "Applies SEO fundamentals: E-E-A-T, Core Web Vitals, technical SEO, meta tags, schema markup, and content structure. Use when auditing or improving search rankings, page metadata, sitemaps, or structured data."
+description: "SEO essentials: E-E-A-T, technical SEO, metadata, schema markup. Use when auditing rankings, metadata, sitemaps or structured data."
 allowed-tools: Read Glob Grep
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

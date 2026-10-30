@@ -1,6 +1,6 @@
 ---
 name: tasks
-description: "Breaks an approved spec into small ordered tasks in docs/specs/<slug>/tasks.md, each with requirement IDs, an owner agent/lane, contracts it depends on and a verification command; --issues also opens GitHub issues after confirmation. Use after a spec is approved, before implementing level-2/3 work."
+description: "Breaks an approved spec into ordered tasks in tasks.md, each with an owner and a verification command, optionally opening GitHub issues. Use after a spec is approved, before implementing level-2/3 work."
 argument-hint: "[path to spec.md] [--issues]"
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

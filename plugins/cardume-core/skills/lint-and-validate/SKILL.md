@@ -1,6 +1,6 @@
 ---
 name: lint-and-validate
-description: Lint, type-check, and security-scan commands per ecosystem (ESLint, tsc, npm audit, Ruff, Bandit, MyPy) and a fix-and-rerun quality loop. Use after modifying code, before reporting a task done, or when asked to lint, format, validate, type-check, or run static analysis.
+description: "Lint, type-check and security-scan commands per ecosystem, with a fix-and-rerun loop. Use after changing code, before calling a task done, or when asked to run static analysis."
 allowed-tools: Read Glob Grep Bash
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---
