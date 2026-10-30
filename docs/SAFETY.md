@@ -20,7 +20,7 @@ All hooks ship in `cardume-core` and are declared in
 | [`stop_verify.py`](../plugins/cardume-core/hooks/stop_verify.py) | when Claude is about to end a turn with uncommitted changes in a git repository (it does nothing outside git) | runs the security scan and lint (`cardume-checklist --critical-only`) **only on the changed files of the git working tree** (yours included; the security scan needs `cardume-qa`); if they fail, the turn does not end and Claude keeps working. After 3 blocks on the same set of files in a session, the decision goes back to you. Pre-existing problems elsewhere in the project never block, and lint never downloads packages | `CARDUME_STOP_VERIFY=0` |
 | [`spec_reminder.py`](../plugins/cardume-core/hooks/spec_reminder.py) | when a turn ends with a large change (8+ files or 400+ lines) and no spec, PRD or ADR | warns you, once per change; does not block | `CARDUME_SPEC_REMINDER=0` |
 | [`routing_reminder.py`](../plugins/cardume-core/hooks/routing_reminder.py) | before each request, except slash commands | adds a short reminder to Claude's context: state the work level, use the matching skill or agent, name it in one line, process skills first. It does not block anything | `CARDUME_ROUTING_NUDGE=0` |
-| [`guard_bash.py`](../plugins/cardume-core/hooks/guard_bash.py) | before a destructive or public shell command | asks for confirmation for `terraform apply`/`destroy`, `kubectl delete`/`drain`, cloud `delete` commands, `bq rm`, `DROP`/`TRUNCATE`, `DELETE` without `WHERE`, `rm -r` on `/` or `~`, `git push --force`, pushing tags, `gh release`, `gh workflow run`, `npm`/`uv`/`cargo`/`mvn` publish, `docker push` and others. A `--dry-run` of a publish or release command passes without asking | `CARDUME_GUARD_BASH=0` |
+| [`guard_bash.py`](../plugins/cardume-core/hooks/guard_bash.py) | before a destructive or public shell command | asks for confirmation for `terraform apply`/`destroy`, `kubectl` commands that change the cluster (`apply`, `create`, `delete`, `patch`, `replace`, `scale`, `drain`, `edit`, `set`, `rollout undo`/`restart` and others), `helm install`/`upgrade`/`uninstall`/`rollback`, cloud `delete` commands, `bq rm`, `DROP`/`TRUNCATE`, `DELETE` without `WHERE`, `rm -r` on `/` or `~`, `git push --force`, pushing tags, `gh release`, `gh workflow run`, `npm`/`uv`/`cargo`/`mvn` publish, `docker push` and others. A `--dry-run` of a publish, release, `kubectl` or `helm` command passes without asking, and so do `kubectl` and `helm` reads | `CARDUME_GUARD_BASH=0` |
 | [`restrict_verifier_writes.py`](../plugins/cardume-core/hooks/restrict_verifier_writes.py) | when the `qa-gatekeeper` agent writes a file or runs a command | allows writes only under `docs/gates/` and `.cardume/reports/`, and denies shell commands that change files or git state or install packages. It can still run tests, builds, linters and `git log`/`diff` | — |
 
 The two `PreToolUse` hooks (`guard_bash` and `restrict_verifier_writes`) run with
@@ -33,7 +33,8 @@ What the hooks do not do:
   not prove that a feature meets its spec; that is the job of the `verify` skill and the
   `qa-gatekeeper` agent.
 - `guard_bash` matches command patterns. It asks; it does not sandbox. A command it does not know
-  runs under your normal Claude Code permissions.
+  runs under your normal Claude Code permissions. That includes `kubectl exec` and `kubectl cp`,
+  whose effect depends on what runs inside them.
 - `restrict_verifier_writes` is best effort. An interpreter can still write files
   (`python -c …`); the agent's instructions forbid that, but no hook catches every case.
 

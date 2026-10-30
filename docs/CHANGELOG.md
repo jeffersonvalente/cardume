@@ -12,12 +12,22 @@ All notable changes to Cardume are documented here. The format follows
   and its dependencies, and evals run from `plugins/` with `--eval-dir` (#2).
 - Eight regex graders used inline `(?i)`, which JavaScript regex doesn't support; they use `flags: i`.
 - Three cases that point at a project file now create it with a `scaffold_script`.
+- `guard_bash` no longer takes `-n` as a dry run outside `git push` and `cargo publish`: for `helm` it is
+  the namespace, for `gh release` the notes, for `poetry` and `twine` non-interactive mode. Those commands
+  ran without asking. A dry-run flag now counts only for the command it is on, not for the whole line, a quoted note or a
+  comment, and backslash line continuations are followed.
+- `guard_bash` no longer asks for `kubectl` reads that mention a verb, such as `kubectl get pod delete-me`
+  or `kubectl auth can-i delete pods`.
 
 ### Added
 - `routing_reminder` hook: before each request, reminds Claude to state the work level, use the matching
   skill or agent and name it in one line, with process skills first (`CARDUME_ROUTING_NUDGE=0` turns it off).
-- Validator check (now 19): eval cases must list their plugin and dependencies, regex graders can't
-  use `(?i)`, and named scaffold scripts must exist.
+- `guard_bash` asks before `kubectl` commands that change a live cluster and before `helm install` and
+  `helm upgrade`. Recognized `kubectl` and `helm` reads, and their dry runs, pass without asking; a line it
+  can't parse asks.
+- Validator checks (now 20): eval cases must list their plugin and dependencies, regex graders can't
+  use `(?i)`, and named scaffold scripts must exist; `guard_bash` runs against commands that must ask
+  and commands that must pass.
 - Team rollout: a committed `.claude/settings.json` installs Cardume for everyone who opens the
   repository, and managed settings can require it across an organization (README and
   `docs/CONFIGURATION.md`).
