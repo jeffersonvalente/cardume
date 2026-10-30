@@ -136,7 +136,7 @@ Some manual commands in more detail:
 
 | Where the cost shows up | How the suite controls it |
 | --- | --- |
-| Fixed, every session: about 8k tokens with the whole suite | Only skill and agent descriptions load; manual commands stay out. The validator enforces a 32,000-character ceiling on all descriptions together |
+| Fixed, every session: about 8k tokens with the whole suite | Only skill and agent descriptions load; manual commands stay out. The validator caps the skill listing at 20,000 characters and agent descriptions at 12,000. On a 200k context window the listing needs a larger budget: see [Use it alongside other plugins](CONFIGURATION.md#use-it-alongside-other-plugins) |
 | Each time an agent runs | Lean body, reference material read on demand, and few preloaded skills (usually 1–2) |
 | What an agent returns | A short summary; long material goes to a file (`docs/` or `.cardume/reports/`) |
 | Heavy skills | `verify` and `standards` run in a separate context, and only the result comes back |

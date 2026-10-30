@@ -82,6 +82,46 @@ precedence over every other scope: a plugin set to `true` there keeps loading ev
 Official references: [Manage plugins for your organization](https://code.claude.com/docs/en/plugins/org)
 and [Deploy managed settings](https://code.claude.com/docs/en/managed-settings).
 
+## Use it alongside other plugins
+
+Claude Code lists every skill's name and description in a budget of 1% of the model's context window.
+When the listing doesn't fit, it drops descriptions, starting with the skills you use least. The names
+stay, but Claude loses the words it matches your request against, so skills fire less often.
+
+Measured on Claude Code 2.1.314:
+
+| Context window | Budget | Built-in skills alone | With `cardume-core` | With the whole suite |
+| --- | --- | --- | --- | --- |
+| 1M | 30,000 characters | fits | fits | fits, about 3,000 left for other plugins |
+| 200k | 6,000 characters | over (about 6,800) | over (about 15,200) | over (about 26,700) |
+
+**See where you stand.** `/doctor` estimates the listing's cost and names its biggest contributors, and
+`/context` shows its size after the budget. Over budget, `claude --debug` logs
+`Skill listing over budget` with the character counts.
+
+**Raise the budget.** Set `skillListingBudgetFraction` in any settings file. `0.05` fits the whole suite
+on a 200k window, and costs 7,000 to 9,000 tokens of that window on every turn:
+
+```json
+{ "skillListingBudgetFraction": 0.05 }
+```
+
+Each 0.01 buys 6,000 characters on 200k: `cardume-core` alone needs `0.03`, and `cardume-core` with
+`cardume-platform` needs `0.04`.
+
+**Turn off plugins that overlap.** Another suite with its own `code-review`, `debug` or `documentation`
+skills spends budget and competes for the same requests. Turn it off for one project in
+`.claude/settings.local.json`, or in `.claude/settings.json` to do it for the team:
+
+```json
+{ "enabledPlugins": { "other-plugin@its-marketplace": false } }
+```
+
+Plugins synced from claude.ai can be turned off the same way, with `<name>@synced`. To stop the sync
+altogether, set `syncClaudeAiPlugins` to `false` in `~/.claude/settings.json` or
+`.claude/settings.local.json`; it isn't read from `.claude/settings.json`. `skillOverrides` does not
+apply to plugin skills.
+
 ## Updates
 
 Third-party marketplaces do not update on their own. Use `/plugin` → Marketplaces → `cardume` →

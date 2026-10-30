@@ -209,6 +209,10 @@ o repositório de módulos Terraform, o prefixo do bucket de state e a região p
 habilitado. Chaves dos hooks, memória de agentes, atualizações e servidores MCP estão em
 [docs/CONFIGURATION.md](docs/CONFIGURATION.md) e [docs/MCP_SETUP.md](docs/MCP_SETUP.md).
 
+Numa janela de contexto de 200k, ou junto de outras suítes de plugins, a listagem de skills pode passar
+do orçamento do Claude Code e perder descrições. Veja
+[Use it alongside other plugins](docs/CONFIGURATION.md#use-it-alongside-other-plugins) (em inglês).
+
 ## Funciona com outras ferramentas
 
 As skills seguem o padrão aberto [Agent Skills](https://agentskills.io) e podem ser instaladas no
