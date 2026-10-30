@@ -15,8 +15,8 @@ Pass `--context` and `-n` explicitly.
 - `kubectl auth can-i VERB RESOURCE -n NS` confirms you have permission before a half-done
   change fails midway.
 
-The cardume guard hook still prompts for `delete`, `drain`, and `cordon` even with
-`--dry-run`; tell the user that this prompt is for a preview.
+The cardume guard hook passes `--dry-run=client` and `--dry-run=server` without a prompt and asks
+for the real command, so the preview needs no approval and the change still gets one.
 
 ## Roll back a Deployment
 

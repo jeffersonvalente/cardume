@@ -84,12 +84,12 @@ decide.
 
 ### The guard hook is a backstop, not the model
 
-`cardume-core` ships a PreToolUse hook that asks the user before `kubectl delete`, `drain`,
-`cordon`, and `replace --force` (and `helm uninstall/rollback`). It does **not** catch
-`apply`, `patch`, `edit`, `scale`, `set`, `label`, `annotate`, `rollout undo`, or
-`rollout restart`, and it prompts even for `--dry-run` variants of the commands it does catch.
-So the hook's silence never means a command is safe; the principles above still apply to every
-mutation.
+`cardume-core` ships a PreToolUse hook that asks the user before `kubectl` commands that change
+the cluster (`apply`, `create`, `delete`, `patch`, `replace`, `scale`, `drain`, `edit`, `set`,
+`rollout undo`/`restart`, and others) and before `helm install`, `upgrade`, `uninstall` and
+`rollback`. `--dry-run=client` and `--dry-run=server` pass without a prompt. It does **not** catch
+`kubectl exec` or `cp`, or a command it cannot recognize. So the hook's silence never means a
+command is safe; the principles above still apply to every mutation.
 
 ## Diagnose: the top-down pass
 

@@ -55,7 +55,8 @@ case is missing its plugins.
 ## What they do not measure
 
 - **The hooks.** `stop_verify`, `guard_bash` and the other hooks are deterministic scripts; no eval
-  case exercises them end to end. Read them in
+  case exercises them end to end. The validator runs `guard_bash` against a list of commands. Read
+  them in
   [`plugins/cardume-core/hooks/`](../plugins/cardume-core/hooks/) and see [SAFETY.md](SAFETY.md).
 - **Edits to a real codebase.** Each case is one request with a turn limit, in an empty workspace.
   Three cases that point at a project file (a PRD, a gate report, a spec) create it first with a

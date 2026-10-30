@@ -419,6 +419,87 @@ def hooks_point_to_scripts() -> None:
                     problem(f"{hooks_file.relative_to(ROOT)}: runs missing file {target}")
 
 
+GUARD = PLUGINS / "cardume-core" / "hooks" / "guard_bash.py"
+GUARD_ASKS = [
+    # kubectl
+    "kubectl apply -f deploy.yaml", "kubectl -n prod apply -k overlays/prod", "kubectl create namespace x",
+    "kubectl --context prod delete pod x", "kubectl --context=prod -n web delete pod x", "kubectl delete pod x -n prod",
+    "kubectl --insecure-skip-tls-verify delete pod x", "kubectl patch deploy x -p '{}'", "kubectl replace -f x.yaml",
+    "kubectl scale deploy/x --replicas=0", "kubectl drain node-1", "kubectl cordon node-1", "kubectl uncordon node-1",
+    "kubectl edit deploy x", "kubectl set image deploy/x a=b:2", "kubectl label pod x a=b", "kubectl annotate pod x a=b",
+    "kubectl taint nodes n a=b:NoSchedule", "kubectl autoscale deploy x --max=5", "kubectl expose deploy x --port=80",
+    "kubectl run x --image=y", "kubectl debug pod/x --image=y", "kubectl rollout undo deploy/x",
+    "kubectl -n prod rollout restart deploy/x", "kubectl rollout -n prod pause deploy/x", "kubectl rollout resume deploy/x",
+    "kubectl certificate approve csr-1", "microk8s kubectl delete pod x", "minikube kubectl -- delete pod x",
+    "cat x.yaml | kubectl apply -f -", "kubectl delete pod x --dry-run=none",
+    # A dry run of one command does not excuse the next one, or a real run after a quoted mention.
+    "kubectl create secret generic x --dry-run=client -o yaml | kubectl apply -f -",
+    "kubectl apply -f x.yaml --dry-run=server && kubectl apply -f x.yaml",
+    "kubectl annotate pod x note='try --dry-run first'",
+    "kubectl apply -f <(kubectl create configmap x --from-file=a --dry-run=client -o yaml)",
+    "kubectl apply -f - <<< $(kubectl create ns x --dry-run=client -o yaml)",
+    "kubectl delete pod x # --dry-run=client", "kubectl delete pod x -- --dry-run",
+    "ssh bastion 'kubectl apply -f x' && echo 'now --dry-run done'", "kubectl annotate pod x note=\"a\\\" --dry-run b\"",
+    "kubectl apply -f x --dry-run=client --dry-run=none", "kubectl delete pod x --snapshot",
+    # Lines the flag parser can't read still ask.
+    'kubectl --context "my ctx" delete pod x', "kubectl $FLAGS delete pod x", 'kubectl "delete" pod x',
+    'kubectl --context="$(kubectl config current-context)" delete pod x', "kubectl -n $(get ns) delete pod x",
+    '"kubectl" delete pod x', "${KUBECTL} delete pod x", "kubectl-1.28 delete pod x", "kubectl.exe delete pod x",
+    "kubectl -n prod \\\n  delete pod x", "helm \\\n  upgrade x ./c", 'helm --kube-context "my ctx" upgrade x ./c',
+    # A namespace named like a read is still a namespace.
+    "kubectl -n logs delete pod x", "kubectl --namespace events apply -f x", "kubectl -n config scale deploy/x --replicas=0",
+    "helm -n history rollback web 3", "kubectl auth reconcile -f rbac.yaml",
+    # helm
+    "helm install web ./chart", "helm upgrade --install web ./chart -n prod", "helm upgrade web ./chart --dry-run=none",
+    "helm uninstall web -n prod", "helm delete web", "helm rollback web 3 -n prod", "helm -n prod rollback web 3",
+    "helm --kube-context prod upgrade web ./chart",
+    # `-n` is not a dry run outside git push and cargo publish.
+    "gh release create v1.0 -n notes", "twine upload -n dist/*", "poetry publish -n", "echo -n x && npm publish",
+    "npm publish --dry-run && npm publish",
+    # Unrelated rules keep asking.
+    "terraform apply", "git push --force origin main", "git push origin v1.0.0", "docker push x/y:1", "DROP TABLE x",
+]
+GUARD_PASSES = [
+    # kubectl: reads, and verbs that only appear in a name or an argument
+    "kubectl get pods -n prod", "kubectl --context prod get pod delete-me", "kubectl describe pod scale-api",
+    "kubectl logs deploy/drain-worker -f", "kubectl auth can-i delete pods", "kubectl api-resources --verbs=delete",
+    "kubectl explain deployment.spec.replicas", "kubectl diff -f x.yaml", "kubectl top pods", "kubectl get events",
+    "kubectl rollout status deploy/x", "kubectl rollout history deploy/restart", "kubectl config set-context --current",
+    "kubectl config use-context prod", "kubectl apply view-last-applied deploy x", "kubectl -n logs get pods",
+    "kubectl wait --for=delete pod/x", "kubectl exec x -- ls", "kubectl port-forward svc/x 8080:80",
+    "kubectl --context prod -n web rollout status deploy/x",
+    # kubectl: dry runs
+    "kubectl apply -f x.yaml --dry-run=client", "kubectl apply -f x.yaml --dry-run=server", "kubectl delete pod x --dry-run=client",
+    "kubectl -n prod scale deploy/x --replicas=2 --dry-run=client -o yaml", "kubectl create ns x --dry-run=client -o yaml",
+    # helm: reads and dry runs
+    "helm list -n prod", "helm status web", "helm history web", "helm get values web", "helm template web ./chart",
+    "helm diff upgrade web ./chart", "helm repo update", "helm plugin install https://example.com/x",
+    "helm upgrade web ./chart --dry-run", "helm upgrade --install web ./chart --dry-run=server -n prod",
+    "helm uninstall web --dry-run", "helm rollback web 3 --dry-run",
+    # Other dry runs keep passing.
+    "git push -n origin v1.0.0", "cargo publish -n", "npm publish --dry-run", "goreleaser release --snapshot",
+    "npm publish \\\n  --dry-run", "git push \\\n  -n origin v1.0.0", "kubectl apply \\\n  -f x --dry-run=client",
+]
+
+
+def guard_asks(command: str) -> bool:
+    payload = json.dumps({"tool_input": {"command": command}})
+    env = {**os.environ, "CARDUME_GUARD_BASH": "1"}
+    result = subprocess.run([sys.executable, str(GUARD)], input=payload, capture_output=True, text=True, env=env)
+    return '"permissionDecision": "ask"' in result.stdout
+
+
+@check
+def guard_cases() -> None:
+    """guard_bash asks for each risky command and stays quiet on reads and dry runs"""
+    for command in GUARD_ASKS:
+        if not guard_asks(command):
+            problem(f"guard_bash should ask: {command}")
+    for command in GUARD_PASSES:
+        if guard_asks(command):
+            problem(f"guard_bash should stay quiet: {command}")
+
+
 # ---------------------------------------------------------------------------
 # Identity, privacy and portability of the text
 # ---------------------------------------------------------------------------
