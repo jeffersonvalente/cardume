@@ -45,7 +45,7 @@ RULES:
 2. Follow project-planner's Phase 0 (context check, clarifying questions)
 3. Create docs/PLAN-{slug}.md with task breakdown
 4. Don't write any code files
-5. Report the exact file name created
+5. Return the plan in full, with the exact file name created
 ```
 
 ---

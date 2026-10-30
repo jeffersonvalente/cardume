@@ -222,7 +222,7 @@ Codex, Cursor, Gemini CLI e Copilot com `npx skills add jeffersonvalente/cardume
 
 ## Contribuindo
 
-Leia o [CONTRIBUTING.md](CONTRIBUTING.md) para a estrutura, as convenções e as 20 checagens do
+Leia o [CONTRIBUTING.md](CONTRIBUTING.md) para a estrutura, as convenções e as 21 checagens do
 `scripts/validate.py`, e o [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) para escrever uma
 skill. As mudanças ficam em [docs/CHANGELOG.md](docs/CHANGELOG.md).
 

@@ -270,6 +270,14 @@ def agents_route_questions() -> None:
             problem(f"{agent.rel}: missing the subagent rule (questions go under **Open questions**)")
 
 
+@check
+def agents_return_deliverables() -> None:
+    """every agent returns an analysis, plan, review or document in full"""
+    for agent in agents():
+        if "Return it in full" not in agent.text.partition("## Reporting back")[2]:
+            problem(f"{agent.rel}: missing the deliverable rule in Reporting back")
+
+
 # ---------------------------------------------------------------------------
 # References and docs
 # ---------------------------------------------------------------------------

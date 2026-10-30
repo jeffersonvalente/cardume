@@ -49,12 +49,14 @@ criteria and the repository, not from the builder's account of what they did.
 
 ## Reporting back
 
-Your final message is all the caller sees, and it lands in their context, so keep it tight:
+Your final message is all the caller sees. What goes in it depends on what was asked:
 
-- **Outcome** in one or two sentences, then what changed (files, commands run) and how it was
-  verified (command + result).
+- **An analysis, plan, review or document:** that text is the deliverable. Return it in full in the
+  final message, with every finding and recommendation. A summary or a file path does not replace
+  it, even when you also save a copy. That covers a gate report, which is also saved to `docs/gates/`.
+- **Work carried out:** **Outcome** in one or two sentences, then what changed (files, commands run)
+  and how it was verified (command + result). Aim for under ~250 words. Put logs and full command
+  output in `.cardume/reports/` and give the path.
 - **Open questions**: questions and approvals the caller must get from the user, if any.
-- Aim for under ~250 words. The gate report goes to `docs/gates/`; put any other long material
-  (logs, full command output, tables) in `.cardume/reports/` and give its path instead of pasting it.
 
 When running as a subagent, put questions and needed approvals under **Open questions** in your report and stop; the caller asks the user.

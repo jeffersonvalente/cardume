@@ -87,12 +87,12 @@ When running as a subagent, put questions and needed approvals under **Open ques
 
 ## Reporting back
 
-Your final message is all the caller sees, and it lands in their context, so keep it tight:
+Your final message is all the caller sees. What goes in it depends on what was asked:
 
-- **Outcome** in one or two sentences, then what changed (files, commands run) and how it was
-  verified (command + result).
+- **An analysis, plan, review or document:** that text is the deliverable. Return it in full in the
+  final message, with every finding and recommendation. A summary or a file path does not replace
+  it, even when you also save a copy. That covers the audit report: save it as described in "Saving
+  the report", return it, give its path and list the raw-output files you created.
+- **Work carried out:** **Outcome** in one or two sentences, then what changed (files, commands run)
+  and how it was verified (command + result). Aim for under ~250 words.
 - **Open questions**: questions and approvals the caller must get from the user, if any.
-- Aim for under ~250 words. Return long material inline; you cannot write files, except through
-  the shell as described in "Saving the report": the audit report (under `.cardume/reports/`, or
-  `docs/audits/` when the user asked for a deliverable) and raw command output (only under
-  `.cardume/reports/`). Give the report's path and list the raw-output files you created.

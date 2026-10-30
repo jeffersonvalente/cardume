@@ -31,8 +31,8 @@ cardume/
 2. Write descriptions in the third person, with a "Use when …" trigger. Keep `SKILL.md` at 500 lines
    or fewer; detail goes into reference files. Write calm instructions that give the reason, without
    MANDATORY/NEVER. [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) covers skill writing in depth.
-3. Every agent has a `## Reporting back` section and the subagent rule (questions go under
-   **Open questions**).
+3. Every agent has a `## Reporting back` section, which returns a requested analysis, plan, review
+   or document in full, and the subagent rule (questions go under **Open questions**).
 4. New Python script under `skills/*/scripts/`: run `python scripts/gen_bins.py` to regenerate the
    `cardume-*` launchers.
 5. New model-invoked skill: add a case in `evals/` (see [docs/EVALS.md](docs/EVALS.md)).
@@ -50,7 +50,7 @@ If you add, remove or reclassify an agent or skill, update the counts sentence i
 
 ## What the validator blocks
 
-`scripts/validate.py` runs 20 checks on every pull request. It blocks:
+`scripts/validate.py` runs 21 checks on every pull request. It blocks:
 
 - **Identity:** names of clients, companies or people (a hashed list; get the hash for a new name
   with `python scripts/validate.py --hash <name>`), update or phone-home hosts, and legacy
@@ -67,7 +67,7 @@ If you add, remove or reclassify an agent or skill, update the counts sentence i
   - every `cardume-<plugin>:<name>` reference exists;
   - no `@[...]` pseudo-references;
   - agents do not preload manual-only skills;
-  - every agent has the subagent rule;
+  - every agent has the subagent rule and returns analyses, plans, reviews and documents in full;
   - every agent appears in the routing table;
   - hooks point to scripts that exist;
   - `guard_bash` asks for each risky command in its list and stays quiet on reads and dry runs;

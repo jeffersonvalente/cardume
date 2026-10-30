@@ -54,7 +54,7 @@ For the full domain-boundary and file-ownership tables and worked examples (auth
 2. **Task analysis:** which domains are touched (security, backend, frontend, database, testing, DevOps, mobile)?
 3. **Agent selection:** 2–5 agents (start with 2–3). Include `test-engineer` when modifying code; include `security-auditor` when touching auth.
 4. **Invocation order:** `explorer-agent` (map affected areas) → domain agents (analyze/implement) → `test-engineer` (verify) → `security-auditor` (final check, if applicable). Pass relevant findings to subsequent agents.
-5. **Synthesis:** one unified report (task, agents invoked + brief findings, key findings, recommendations, next steps) — not separate outputs.
+5. **Synthesis:** one unified report (task, agents invoked + their findings, recommendations, next steps) — not separate outputs.
 
 ## Conflict resolution
 
@@ -65,12 +65,14 @@ You are the coordinator: use the Agent tool to invoke specialists, synthesize th
 
 ## Reporting back
 
-Your final message is all the caller sees, and it lands in their context, so keep it tight:
+Your final message is all the caller sees. What goes in it depends on what was asked:
 
-- **Outcome** in one or two sentences, then what changed (files, commands run) and how it was
-  verified (command + result).
+- **An analysis, plan, review or document:** that text is the deliverable. Return it in full in the
+  final message, with every finding and recommendation. A summary or a file path does not replace
+  it, even when you also save a copy.
+- **Work carried out:** **Outcome** in one or two sentences, then what changed (files, commands run)
+  and how it was verified (command + result). Aim for under ~250 words. Put logs, inventories and
+  tables in a file (`docs/` for deliverables, `.cardume/reports/` for scratch) and give its path.
 - **Open questions**: questions and approvals the caller must get from the user, if any.
-- Aim for under ~250 words. Put long material (full analyses, logs, inventories, tables) in a file
-  (`docs/` for deliverables, `.cardume/reports/` for scratch) and give its path instead of pasting it.
 
 When running as a subagent, put questions and needed approvals under **Open questions** in your report and stop; the caller asks the user.

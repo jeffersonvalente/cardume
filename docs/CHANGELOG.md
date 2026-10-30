@@ -27,14 +27,16 @@ All notable changes to Cardume are documented here. The format follows
 - `guard_bash` asks before `kubectl` commands that change a live cluster and before `helm install` and
   `helm upgrade`. Recognized `kubectl` and `helm` reads, and their dry runs, pass without asking; a line it
   can't parse asks.
-- Validator checks (now 20): eval cases must list their plugin and dependencies, regex graders can't
+- Validator checks (now 21): eval cases must list their plugin and dependencies, regex graders can't
   use `(?i)`, and named scaffold scripts must exist; `guard_bash` runs against commands that must ask
-  and commands that must pass.
+  and commands that must pass; every agent must return deliverables in full.
 - Team rollout: a committed `.claude/settings.json` installs Cardume for everyone who opens the
   repository, and managed settings can require it across an organization (README and
   `docs/CONFIGURATION.md`).
 
 ### Changed
+- Agents return the full text when the request is an analysis, plan, review or document. The ~250-word
+  limit now applies only to reports on executed work: it was cutting deliverables down to a summary.
 - The description ceiling in the validator counts what Claude Code really lists: 20,000 characters for the
   skill listing, with each `plugin:name` prefix, and 12,000 for agent descriptions, instead of 32,000 for
   both together.
