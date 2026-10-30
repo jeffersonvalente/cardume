@@ -14,6 +14,8 @@ All notable changes to Cardume are documented here. The format follows
 - Three cases that point at a project file now create it with a `scaffold_script`.
 
 ### Added
+- `routing_reminder` hook: before each request, reminds Claude to state the work level, use the matching
+  skill or agent and name it in one line, with process skills first (`CARDUME_ROUTING_NUDGE=0` turns it off).
 - Validator check (now 19): eval cases must list their plugin and dependencies, regex graders can't
   use `(?i)`, and named scaffold scripts must exist.
 - Team rollout: a committed `.claude/settings.json` installs Cardume for everyone who opens the

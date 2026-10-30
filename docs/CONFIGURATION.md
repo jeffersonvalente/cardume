@@ -107,6 +107,7 @@ listing, and `claude plugin update <plugin>@cardume` updates an installed plugin
   | `CARDUME_SYNTAX_CHECK=0` | turns off the syntax check after edits |
   | `CARDUME_STOP_VERIFY=0` | turns off the security scan and lint before a turn ends |
   | `CARDUME_SPEC_REMINDER=0` | turns off the large-change reminder |
+  | `CARDUME_ROUTING_NUDGE=0` | turns off the routing reminder added to each request |
   | `CARDUME_GUARD_BASH=0` | turns off the confirmation before destructive or public commands |
   | `DESIGN_FLOW_LIVE_ALLOWED_ORIGINS` | allows the live design preview on a custom local hostname (comma-separated origins) |
   | `DESIGN_FLOW_LIVE_COPY_AGENT` | `chat` (default) applies live edits in the conversation; `claude`, `codex` or `auto` run a separate agent and send code to its vendor |
