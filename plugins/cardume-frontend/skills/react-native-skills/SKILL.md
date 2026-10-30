@@ -1,6 +1,6 @@
 ---
 name: react-native-skills
-description: "Applies React Native and Expo performance and correctness rules: list virtualization, animations, navigation, images, and native modules. Use when building or reviewing React Native components, optimizing list or scroll performance, implementing animations, or working with Expo and native platform APIs."
+description: "React Native and Expo rules for lists, animations, navigation, images and native modules. Use when building or optimizing React Native apps."
 license: MIT
 metadata:
   version: '1.0.0'

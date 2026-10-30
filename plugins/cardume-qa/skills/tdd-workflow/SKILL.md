@@ -1,6 +1,6 @@
 ---
 name: tdd-workflow
-description: "Test-driven development workflow using the red-green-refactor cycle. Use when implementing a feature or bugfix test-first, or when guiding someone through TDD."
+description: "TDD red-green-refactor workflow. Use when implementing a feature or bug fix test-first."
 allowed-tools: Read Write Edit Glob Grep Bash
 ---
 

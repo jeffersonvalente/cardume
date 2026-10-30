@@ -1,6 +1,6 @@
 ---
 name: terraform-stacks
-description: "Generates Terraform root modules (stacks) for a project from bundled GCP module and stack templates, plus HCP Terraform Stacks guidance, without running terraform apply. Use when asked for Terraform for a GCP resource, a \"new stack\", to \"wire modules into a project\", or to set up HCP Terraform Stacks."
+description: "Generates Terraform root modules from bundled GCP templates, without running apply. Use when asked for Terraform for a GCP resource, a new stack or HCP Terraform Stacks."
 metadata:
   copyright: "Copyright (c) Cardume contributors. MIT License."
 compatibility: "Needs Claude Code with the Cardume plugins for template paths and user_config values; the guidance itself is portable to any Terraform or OpenTofu workflow."

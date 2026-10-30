@@ -92,22 +92,21 @@ Measured on Claude Code 2.1.314:
 
 | Context window | Budget | Built-in skills alone | With `cardume-core` | With the whole suite |
 | --- | --- | --- | --- | --- |
-| 1M | 30,000 characters | fits | fits | fits, about 3,000 left for other plugins |
-| 200k | 6,000 characters | over (about 6,800) | over (about 15,200) | over (about 26,700) |
+| 1M | 30,000 characters | fits | fits | fits, about 11,000 left for other plugins |
+| 200k | 6,000 characters | over (about 6,800) | over (about 12,000) | over (about 18,800) |
 
 **See where you stand.** `/doctor` estimates the listing's cost and names its biggest contributors, and
 `/context` shows its size after the budget. Over budget, `claude --debug` logs
 `Skill listing over budget` with the character counts.
 
-**Raise the budget.** Set `skillListingBudgetFraction` in any settings file. `0.05` fits the whole suite
-on a 200k window, and costs 7,000 to 9,000 tokens of that window on every turn:
+**Raise the budget.** Set `skillListingBudgetFraction` in any settings file. `0.04` fits the whole suite
+on a 200k window, and costs 5,000 to 6,000 tokens of that window on every turn:
 
 ```json
-{ "skillListingBudgetFraction": 0.05 }
+{ "skillListingBudgetFraction": 0.04 }
 ```
 
-Each 0.01 buys 6,000 characters on 200k: `cardume-core` alone needs `0.03`, and `cardume-core` with
-`cardume-platform` needs `0.04`.
+Each 0.01 buys 6,000 characters on 200k: `cardume-core` alone, or with `cardume-platform`, needs `0.03`.
 
 **Turn off plugins that overlap.** Another suite with its own `code-review`, `debug` or `documentation`
 skills spends budget and competes for the same requests. Turn it off for one project in

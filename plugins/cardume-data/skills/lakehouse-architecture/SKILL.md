@@ -1,6 +1,6 @@
 ---
 name: lakehouse-architecture
-description: "Medallion lakehouse design on BigQuery: layer contracts, naming, dimensional modeling (dim_/fct_ defaults), lineage and change propagation. Use when designing, extending, debugging or reviewing layered pipelines, datasets, dimensions or fact tables."
+description: "Medallion lakehouse on BigQuery: layers, naming, dimensional modeling, lineage. Use when designing, extending or reviewing pipelines, dimensions or fact tables."
 allowed-tools: Read Write Edit
 ---
 

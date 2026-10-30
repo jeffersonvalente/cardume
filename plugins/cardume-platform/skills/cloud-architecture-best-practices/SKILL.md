@@ -1,6 +1,6 @@
 ---
 name: cloud-architecture-best-practices
-description: "Reviews or proposes cloud workload designs as short decision records weighing cost, complexity, reliability and operability, with provider-grounded cost levers for AWS, GCP and Azure. Use when choosing services or compute, sizing, scaling, resiliency or network design, or cutting cost without hurting reliability."
+description: "Reviews or proposes cloud workload designs as short decision records weighing cost and reliability on AWS, GCP and Azure. Use when choosing services, sizing, resiliency or network design, or cutting cost."
 ---
 
 # Cloud Architecture Best Practices

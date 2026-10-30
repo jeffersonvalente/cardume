@@ -1,6 +1,6 @@
 ---
 name: standards
-description: "Scans the repository and writes docs/standards.md with the project's actual conventions (stack, layout, naming, errors, tests, lint, commits, CI), each backed by evidence. Use when starting level-2/3 work in a project that has no docs/standards.md, or when conventions changed."
+description: "Scans the repository and writes docs/standards.md with its real conventions, each backed by evidence. Use when starting level-2/3 work without that file, or when conventions changed."
 context: fork
 background: false
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."

@@ -1,6 +1,6 @@
 ---
 name: deployment-procedures
-description: "Production deployment principles: safe rollout workflows, pre-deploy verification, rollback strategy, and post-deploy checks, focused on reasoning over fixed scripts. Use when planning or executing a release, choosing a rollout strategy, or preparing a rollback."
+description: "Safe rollout, pre-deploy checks, rollback and post-deploy verification. Use when planning a release, choosing a rollout strategy or preparing a rollback."
 allowed-tools: Read Glob Grep Bash
 ---
 

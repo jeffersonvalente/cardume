@@ -1,6 +1,6 @@
 ---
 name: airflow-testing
-description: "Testing and CI for Airflow DAGs (Airflow 3 with 2.x notes, Cloud Composer): DagBag parse tests, DAG property tests, top-level code hazards, Ruff AIR rules, credential-free CI. Use when adding or reviewing a DAG, writing DAG tests or setting up DAG CI."
+description: "Tests and CI for Airflow DAGs (Airflow 3, Cloud Composer): parse and property tests, top-level hazards, Ruff AIR rules. Use when adding a DAG, writing DAG tests or setting up DAG CI."
 allowed-tools: Read Grep Glob
 ---
 

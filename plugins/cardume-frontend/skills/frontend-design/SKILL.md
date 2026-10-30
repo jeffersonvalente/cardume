@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: "Applies design thinking to web UI decisions: constraints, UX psychology, layout, color, typography, effects, and motion, with anti-cliché checks. Use when designing or restyling components, pages, layouts, color schemes, or typography, or when choosing a visual direction. Teaches principles, not fixed values."
+description: "Design principles for web UI: constraints, layout, color, typography, motion, anti-cliché checks. Use when choosing a visual direction or restyling a page or component."
 allowed-tools: Read Write Edit Glob Grep Bash
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

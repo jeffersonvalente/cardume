@@ -1,6 +1,6 @@
 ---
 name: performance-profiling
-description: "Measures and analyzes performance before optimizing: Core Web Vitals, Lighthouse, bundle analysis, runtime and memory profiling. Use when diagnosing a slow page or app, choosing a profiling tool, or running a Lighthouse audit."
+description: "Measures before optimizing: Core Web Vitals, Lighthouse, bundle, runtime and memory profiling. Use when diagnosing a slow page or app."
 allowed-tools: Read Glob Grep Bash
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

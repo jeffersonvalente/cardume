@@ -1,6 +1,6 @@
 ---
 name: generator-pr-description
-description: "Drafts a consolidated PR title and body from the branch's full diff and commits vs its base (repo PR template or built-in), in the user's or project's language (e.g. pt-BR); saves a draft, then creates or updates the PR via gh after confirmation. Use when asked to create a PR, write a PR description or document branch changes (criar PR, descrição de PR)."
+description: "Drafts a PR title and body from the branch's full diff, then creates or updates the PR after confirmation. Use when asked to create a PR or write a PR description (criar PR, descrição de PR)."
 argument-hint: "<base-branch> (optional — detected automatically if omitted)"
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: tailwind-patterns
-description: "Applies Tailwind CSS v4 patterns: CSS-first @theme configuration, design token architecture, container queries, dark mode, and responsive utilities. Use when writing or refactoring Tailwind styles, migrating from v3, or setting up a Tailwind design system."
+description: "Tailwind CSS v4 with @theme tokens, container queries and dark mode. Use when writing Tailwind styles, migrating from v3 or setting up a Tailwind design system."
 allowed-tools: Read Write Edit Glob Grep
 ---
 

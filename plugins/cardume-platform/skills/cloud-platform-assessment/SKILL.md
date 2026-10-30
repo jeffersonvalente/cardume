@@ -1,6 +1,6 @@
 ---
 name: cloud-platform-assessment
-description: "Runs a read-only, risk-based review of a whole cloud estate (AWS, GCP, Azure, Kubernetes) along the provider's Well-Architected pillars and returns evidence-backed risks plus a 30/60/90-day plan. Use when asked for a platform health check, maturity or hardening review, or a prioritized roadmap."
+description: "Read-only, risk-based Well-Architected review of a whole cloud estate with a 30/60/90-day plan. Use when asked for a platform health check, maturity or hardening review."
 ---
 
 # Cloud Platform Assessment

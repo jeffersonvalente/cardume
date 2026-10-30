@@ -1,6 +1,6 @@
 ---
 name: architecture
-description: Architecture decision framework covering context discovery questions, trade-off analysis and pattern selection (monolith vs microservices, layering, event-driven); ADRs are recorded via the adr skill. Use when making or documenting an architecture decision, choosing patterns, or reviewing a system design.
+description: "Weighs trade-offs and picks patterns (monolith or microservices, layering, events). Use when choosing an architecture or reviewing a system design."
 allowed-tools: Read Glob Grep
 ---
 

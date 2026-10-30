@@ -1,6 +1,6 @@
 ---
 name: review
-description: "Reviews a change with parallel specialist reviewers chosen from the touched files, drops low-confidence findings, verifies each remaining one against the code, and flags specs left outdated by the change. Use before merging any non-trivial change or when the user asks for a code review (PR number/URL, branch, or current diff)."
+description: "Reviews a change with parallel specialist reviewers, verifies each finding against the code and flags outdated specs. Use before merging a non-trivial change or when asked for a code review (PR, branch or diff)."
 argument-hint: "[PR number/URL | branch | empty for current changes] [--comment]"
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

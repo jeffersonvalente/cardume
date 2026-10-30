@@ -1,6 +1,6 @@
 ---
 name: verify
-description: "Checks an implementation against every requirement of its spec by executing each acceptance criterion, records evidence in docs/specs/<slug>/verify.md, lists gaps and proposes spec amendments for drift. Use after implementing a spec, before calling a feature done or opening its PR."
+description: "Runs every acceptance criterion of a spec and records evidence in verify.md, listing gaps. Use after implementing a spec, before calling the feature done or opening its PR."
 context: fork
 background: false
 argument-hint: "[path to spec.md]"

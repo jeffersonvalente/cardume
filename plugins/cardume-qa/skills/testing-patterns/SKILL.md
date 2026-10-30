@@ -1,6 +1,6 @@
 ---
 name: testing-patterns
-description: "Testing patterns and principles: test pyramid, unit and integration tests, mocking strategies, fixtures, and test organization. Use when designing tests, choosing what to mock, or reviewing test quality."
+description: "Test pyramid, mocking, fixtures and test organization. Use when designing tests, choosing what to mock or reviewing test quality."
 allowed-tools: Read Write Edit Glob Grep Bash
 ---
 

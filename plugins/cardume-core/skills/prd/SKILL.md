@@ -1,6 +1,6 @@
 ---
 name: prd
-description: "Writes a product requirements document in docs/prd/ (problem and evidence, success metrics, appetite, verifiable acceptance criteria, no-gos, typed risks, test script, blockers) for a new product, project or phase. Use for level-3 work: a new system, a new product phase, or when the user asks for a PRD; feature-level work uses the spec skill instead."
+description: "Writes a PRD in docs/prd/ with metrics, acceptance criteria, no-gos, risks and blockers. Use for level-3 work: a new system or product phase, or when the user asks for a PRD; feature-level work uses spec."
 allowed-tools: Read Glob Grep Write Edit
 ---
 

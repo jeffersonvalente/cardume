@@ -1,6 +1,6 @@
 ---
 name: spec
-description: "Specifies a feature before building it: asks the questions that change the design, then writes docs/specs/<slug>/spec.md with testable EARS requirements, acceptance criteria, design notes and non-goals. Use for level-2 work (a new feature, or a change to more than ~5 files or more than one area; gate optional, on request) before any code is written; not for level 0–1 edits."
+description: "Asks the questions that change the design, then writes a spec in docs/specs/ with testable requirements and non-goals. Use for level-2 work (a new feature, or a change to more than ~5 files or more than one area) before any code; not for level 0-1 edits."
 argument-hint: "[feature or change to specify]"
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

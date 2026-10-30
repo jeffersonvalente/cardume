@@ -61,7 +61,7 @@ If you add, remove or reclassify an agent or skill, update the counts sentence i
   - names are unique and follow the Agent Skills format;
   - `SKILL.md` is at most 500 lines;
   - model-invoked descriptions have a trigger;
-  - the skill listing fits 20,000 characters and agent descriptions fit 12,000, which leaves room
+  - the skill listing fits 14,000 characters and agent descriptions fit 12,000, which leaves room
     for other plugins.
 - **Consistency:**
   - every `cardume-<plugin>:<name>` reference exists;

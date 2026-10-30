@@ -1,6 +1,6 @@
 ---
 name: code-review-checklist
-description: Code review checklist covering correctness, security (injection, XSS, secrets, prompt injection), performance, code quality, testing, and docs, with severity-tagged comment conventions. Use when reviewing a pull request, diff, or code change, or self-reviewing before merge.
+description: "Checklist for correctness, security, performance and tests, with severity-tagged comments. Use for a quick manual review of a diff or a self-review before merge."
 allowed-tools: Read Glob Grep
 ---
 

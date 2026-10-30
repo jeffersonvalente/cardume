@@ -1,6 +1,6 @@
 ---
 name: observability-patterns
-description: "Guides vendor-neutral observability: OpenTelemetry instrumentation and Collector pipelines, trace-correlated logs, RED/USE, SLOs with multi-burn-rate alerts, dashboards, sampling and cardinality cost control, and telemetry-driven incident investigation. Use when instrumenting a service, defining SLOs or alerts, designing dashboards, or debugging latency/error spikes."
+description: "Vendor-neutral OpenTelemetry, SLOs, burn-rate alerts, dashboards and cardinality cost. Use when instrumenting a service, defining SLOs or alerts, or debugging latency or error spikes."
 allowed-tools: Read Grep Glob
 ---
 

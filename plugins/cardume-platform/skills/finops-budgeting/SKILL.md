@@ -1,6 +1,6 @@
 ---
 name: finops-budgeting
-description: "Builds and reviews cloud budgets, forecasts and guardrails with the FinOps Inform/Optimize/Operate model: FOCUS cost data, variance bridges, unit economics, forecast worksheet, commitments. Use when setting a cloud budget, explaining a bill spike, or adding cost guardrails."
+description: "Cloud budgets, forecasts, guardrails and unit economics with the FinOps model. Use when setting a budget, explaining a bill spike or adding cost guardrails."
 ---
 
 # FinOps Budgeting

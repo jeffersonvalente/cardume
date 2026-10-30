@@ -1,6 +1,6 @@
 ---
 name: gate
-description: "Runs a phase or milestone gate: checks every acceptance criterion of the PRD/spec against executed evidence, writes docs/gates/GATE-<id>.md with a pass/fail table and an APPROVE/REJECT recommendation, and leaves the decision to the user. Use when a level-3 phase or milestone ends, or when the user asks whether something is ready to approve or release."
+description: "Checks every acceptance criterion against executed evidence and writes a report in docs/gates/ with an APPROVE/REJECT recommendation. Use when a level-3 phase or milestone ends or the user asks if something is ready to release."
 ---
 
 # Gate — evidence-based approval of a phase

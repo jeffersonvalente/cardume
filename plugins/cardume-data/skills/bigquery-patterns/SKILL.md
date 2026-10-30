@@ -1,6 +1,6 @@
 ---
 name: bigquery-patterns
-description: "BigQuery SQL discipline: dry runs, byte caps, partition and column pruning, safe joins and casts, job timeouts, before/after integrity checks. Use when writing, reviewing, optimizing or validating BigQuery SQL, or when a query is slow or expensive."
+description: "BigQuery SQL discipline: dry runs, byte caps, pruning, safe joins, integrity checks. Use when writing, reviewing or optimizing BigQuery SQL, or when a query is slow or expensive."
 allowed-tools: Read Write Edit
 ---
 

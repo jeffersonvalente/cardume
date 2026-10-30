@@ -1,6 +1,6 @@
 ---
 name: mobile-design
-description: "Guides mobile-first design and implementation decisions for iOS and Android: touch targets, thumb zone, list and animation performance, offline, security, navigation, and platform conventions. Use when building or reviewing React Native, Expo, Flutter, SwiftUI, or Kotlin app screens. Teaches principles, not fixed values."
+description: "Mobile UX for iOS and Android: touch targets, lists, offline, navigation, platform conventions. Use when building or reviewing React Native, Expo, Flutter, SwiftUI or Kotlin screens."
 allowed-tools: Read Glob Grep Bash
 compatibility: "Claude Code with the Cardume plugins (uses cardume-* commands, subagents or plugin paths); the guidance itself is portable."
 ---

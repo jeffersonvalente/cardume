@@ -1,6 +1,6 @@
 ---
 name: behavioral-modes
-description: Defines working modes (brainstorm, implement, debug, review, teach, ship, plus multi-agent explore and plan-execute-critic) with the behavior and output style for each. Use to pick how to respond when a request is ideation, building, troubleshooting, reviewing, explaining, or release prep.
+description: "Working modes (brainstorm, implement, debug, review, teach, ship) and the output style of each. Use to pick how to respond when the kind of request is unclear."
 allowed-tools: Read Glob Grep
 ---
 

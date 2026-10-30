@@ -1,6 +1,6 @@
 ---
 name: server-management
-description: "Server management principles: process management, monitoring strategy, log handling, and scaling decisions, focused on reasoning over commands. Use when operating or troubleshooting Linux servers or deciding how to monitor and scale them."
+description: "Linux server process management, monitoring, logs and scaling. Use when operating or troubleshooting servers."
 allowed-tools: Read Write Edit Glob Grep Bash
 ---
 

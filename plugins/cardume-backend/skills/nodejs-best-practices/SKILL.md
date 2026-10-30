@@ -1,6 +1,6 @@
 ---
 name: nodejs-best-practices
-description: "Node.js decision guide: framework selection, async patterns, error handling, security, and project architecture, focused on reasoning over copy-paste templates. Use when starting or reviewing a Node.js backend or choosing between Node frameworks and runtimes."
+description: "Picks Node.js frameworks and async, error and security patterns. Use when starting or reviewing a Node.js backend."
 allowed-tools: Read Write Edit Glob Grep
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: systematic-debugging
-description: Systematic 4-phase debugging (reproduce, isolate, understand root cause, fix and verify) with evidence templates and a 5 Whys analysis. Use when a bug's cause is unclear, behavior diverges from expected, an issue is intermittent, or a fix didn't hold.
+description: "Four-phase debugging: reproduce, isolate, find the root cause, fix and verify. Use when a bug's cause is unclear, an issue is intermittent or a fix didn't hold."
 allowed-tools: Read Glob Grep
 ---
 
