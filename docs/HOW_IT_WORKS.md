@@ -18,7 +18,12 @@ that enforce part of them are described in [SAFETY.md](SAFETY.md).
 
 You describe the task; you do not pick an agent. Claude Code already chooses agents and skills by
 their descriptions, and the Cardume block in `CLAUDE.md` tells Claude to classify the work level
-first and then choose the specialist whose description matches. When the choice is not obvious
+first and then choose the specialist whose description matches. The
+[`routing_reminder`](../plugins/cardume-core/hooks/routing_reminder.py) hook repeats this before
+each request, because a rule read once at the start of a session is easy to skip. With several
+matches, process skills come before implementation skills, and Claude says in one line which one it
+is using.
+When the choice is not obvious
 (a vague request, or one that spans several areas), Claude consults the
 [`intelligent-routing`](../plugins/cardume-core/skills/intelligent-routing/SKILL.md) table, which maps
 every area to its agent. Work across several areas goes to the `orchestrator` agent once there is an
@@ -45,10 +50,10 @@ than one file or area. If a task grows mid-way, Claude stops and reclassifies.
 
 **You are in charge.** "Just do it" skips the process; "I want a full spec" forces the whole flow.
 
-The classification is an instruction to the model, not a hook. Two things back it up: the
-`spec_reminder` hook warns you once when a change reaches 8+ files or 400+ lines with no spec, PRD or
-ADR, and the `levels` eval cases check that a risky "one-line" permission change is not treated as
-level 0 (see [EVALS.md](EVALS.md)).
+The classification is an instruction to the model, not a check. Three things back it up: the
+`routing_reminder` hook repeats it before each request, the `spec_reminder` hook warns you once when
+a change reaches 8+ files or 400+ lines with no spec, PRD or ADR, and the `levels` eval cases check
+that a risky "one-line" permission change is not treated as level 0 (see [EVALS.md](EVALS.md)).
 
 ## Rules at any level
 

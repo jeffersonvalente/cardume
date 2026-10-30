@@ -189,6 +189,7 @@ de custo. Veja [docs/EVALS.md](docs/EVALS.md).
 | `syntax_check` | Devolve erros de sintaxe em arquivos `.py`, `.js`, `.sh` e `.json` logo depois de cada edição |
 | `restrict_verifier_writes` | Limita o `qa-gatekeeper` a escrever relatórios e rodar comandos só de leitura |
 | `spec_reminder` | Avisa uma vez (não bloqueia) quando uma mudança grande não tem spec, PRD nem ADR |
+| `routing_reminder` | Lembra o Claude, antes de cada pedido, de dizer o nível e usar a skill ou o agente certo (não bloqueia) |
 
 - **Sem telemetria.** Nenhum script envia dados de uso ou de sessão. Código só vai para outro agente
   se você optar por isso (veja o preview ao vivo abaixo).

@@ -187,6 +187,7 @@ Cardume guard hook (`[plugin:cardume-core]`) stops the command and asks first.*
 | `syntax_check` | Returns syntax errors in `.py`, `.js`, `.sh` and `.json` files right after each edit |
 | `restrict_verifier_writes` | Limits `qa-gatekeeper` to writing reports and running read-only commands |
 | `spec_reminder` | Warns once (does not block) when a large change has no spec, PRD or ADR |
+| `routing_reminder` | Reminds Claude before each request to state the level and use the matching skill or agent (does not block) |
 
 - **No telemetry.** No script sends usage or session data anywhere. Code only goes to another
   agent if you opt in (see the live preview below).
