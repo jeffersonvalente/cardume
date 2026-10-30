@@ -1,8 +1,8 @@
 # Write-up format
 
-Write the assessment in Markdown. For a long review, save it to `docs/` (a deliverable the
-team keeps) and return a short summary with the path. Keep the order below: decision-makers
-read the first page; engineers read the register.
+Write the assessment in Markdown. For a long review, save a copy to `docs/` (a deliverable the
+team keeps) and still return the full text. Keep the order below: decision-makers read the
+first page; engineers read the register.
 
 ## 1. Executive summary (half a page)
 

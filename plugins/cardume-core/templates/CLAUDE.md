@@ -73,7 +73,9 @@ Checks from plugins that are not installed are skipped.
 
 - Before merging non-trivial changes: `/cardume-core:review` (parallel specialist reviewers,
   verified findings only).
-- Subagents return short reports; long output goes to a file under `docs/` or `.cardume/reports/`.
+- Subagents return the full text when the request is an analysis, plan, review or document. After
+  executed work they return a short report; logs and long output go to a file under `docs/` or
+  `.cardume/reports/`.
 - Subagents cannot talk to the user: they return questions and needed approvals under
   **Open questions**. Ask the user, then resume or re-run the subagent with the answers.
 

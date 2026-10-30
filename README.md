@@ -220,7 +220,7 @@ Agents, hooks and the `cardume-*` commands are Claude Code only. See
 
 ## Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) for the layout, conventions and the 20 checks of
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for the layout, conventions and the 21 checks of
 `scripts/validate.py`, and [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) for writing a skill.
 Changes are listed in [docs/CHANGELOG.md](docs/CHANGELOG.md).
 

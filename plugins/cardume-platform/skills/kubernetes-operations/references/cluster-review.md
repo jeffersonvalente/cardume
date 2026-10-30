@@ -9,8 +9,8 @@ read-only.
 - Confirm context and scope (whole cluster, some namespaces, one team).
 - `kubectl auth can-i --list` (and `-n NS`) to learn what you can read. Report blind spots
   instead of guessing; cluster-scoped objects often need more access than namespaced ones.
-- Large outputs go to a file (`.cardume/reports/` for scratch, `docs/` for a deliverable) and
-  the chat gets the summary and the path.
+- Large command outputs go to a file (`.cardume/reports/` for scratch, `docs/` for a deliverable)
+  and the chat gets the path. The review itself is returned in full.
 
 ## Questions a review answers
 
