@@ -20,6 +20,8 @@ All notable changes to Cardume are documented here. The format follows
   or `kubectl auth can-i delete pods`.
 
 ### Added
+- `docs/CONFIGURATION.md` explains running Cardume alongside other plugins: how the skill listing budget
+  works, how to spot an overflow, and how to fix it on a 200k context window.
 - `routing_reminder` hook: before each request, reminds Claude to state the work level, use the matching
   skill or agent and name it in one line, with process skills first (`CARDUME_ROUTING_NUDGE=0` turns it off).
 - `guard_bash` asks before `kubectl` commands that change a live cluster and before `helm install` and
@@ -33,6 +35,9 @@ All notable changes to Cardume are documented here. The format follows
   `docs/CONFIGURATION.md`).
 
 ### Changed
+- The description ceiling in the validator counts what Claude Code really lists: 20,000 characters for the
+  skill listing, with each `plugin:name` prefix, and 12,000 for agent descriptions, instead of 32,000 for
+  both together.
 - README rewritten in English, opening with what Cardume adds (a specialist for each part of the job,
   a process sized to each change, hooks the model cannot skip) instead of counts; a Brazilian
   Portuguese mirror is in `README.pt-BR.md`.

@@ -207,6 +207,10 @@ modules repository, state bucket prefix and default region when enabled. Hook sw
 updates and MCP servers are covered in [docs/CONFIGURATION.md](docs/CONFIGURATION.md) and
 [docs/MCP_SETUP.md](docs/MCP_SETUP.md).
 
+On a 200k context window, or next to other plugin suites, the skill listing can run past Claude Code's
+budget and lose descriptions. See
+[Use it alongside other plugins](docs/CONFIGURATION.md#use-it-alongside-other-plugins).
+
 ## Works with other tools
 
 The skills follow the open [Agent Skills](https://agentskills.io) format and install in Codex,

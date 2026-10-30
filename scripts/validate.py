@@ -206,7 +206,12 @@ def skill_size() -> None:
 # ---------------------------------------------------------------------------
 
 TRIGGER_RE = re.compile(r"\buse (it |this |them )?(when|for|to|before|after|proactively)\b", re.IGNORECASE)
-DESCRIPTION_BUDGET = 32_000  # characters; ~4 chars/token → about 8k tokens for the full suite
+# Claude Code gives the skill listing 30,000 characters on a 1M context window and 6,000 on 200k, built-in
+# skills take about 7,000 of that, and agent descriptions are listed separately. Every skill line carries
+# its `plugin:name` prefix, so the ceiling counts the line, not just the description.
+SKILL_LISTING_BUDGET = 20_000
+QUOTES = "\"'"
+AGENT_DESCRIPTION_BUDGET = 12_000
 
 
 @check
@@ -219,11 +224,15 @@ def descriptions_say_when() -> None:
 
 @check
 def description_budget() -> None:
-    """all descriptions together fit the always-on context budget"""
-    total = sum(len(doc.description) for doc in agents() + skills())
-    print(f"    · {total} of {DESCRIPTION_BUDGET} characters")
-    if total > DESCRIPTION_BUDGET:
-        problem(f"descriptions use {total} characters (budget {DESCRIPTION_BUDGET}); tighten the longest ones")
+    """the skill listing and the agent descriptions leave room for other plugins"""
+    listing = sum(len(f"- {doc.plugin}:{doc.path.parent.name}: {doc.description.strip(QUOTES)}\n")
+                  for doc in skills() if not doc.manual_only)
+    agent_text = sum(len(doc.description) for doc in agents())
+    print(f"    · skill listing {listing} of {SKILL_LISTING_BUDGET}, agents {agent_text} of {AGENT_DESCRIPTION_BUDGET} characters")
+    if listing > SKILL_LISTING_BUDGET:
+        problem(f"skill listing uses {listing} characters (budget {SKILL_LISTING_BUDGET}); tighten the longest ones")
+    if agent_text > AGENT_DESCRIPTION_BUDGET:
+        problem(f"agent descriptions use {agent_text} characters (budget {AGENT_DESCRIPTION_BUDGET}); tighten the longest ones")
 
 
 @check
