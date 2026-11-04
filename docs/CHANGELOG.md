@@ -7,6 +7,15 @@ All notable changes to Cardume are documented here. The format follows
 ## [Unreleased]
 
 ### Fixed
+- The Stop hook no longer blocks on problems that were already in a file Claude touched. The
+  security scan and lint take `--changed-lines` and count only lines added or changed since `HEAD`
+  (a new file counts in full); the checklist passes it in `--critical-only` mode, and falls back to
+  whole files for an older copy of a check that doesn't know the flag. Syntax errors and undefined names
+  still count anywhere in a touched file, since a change can cause them on lines it did not touch. A line ending in a `nosec`
+  comment, or in a ruff `noqa` naming the matching rule, is skipped by the security scan; a scan of
+  selected files no longer reports missing security headers (#25).
+- The Stop hook now checks changed files whose names have non-ASCII characters or contain ` -> `;
+  git escaped or split those names, so they didn't match a file on disk and were skipped.
 - Two files looked like plugin components but never loaded as such. The design-flow subagent prompts
   moved from `skills/design-flow/agents/` to `subagent-prompts/`, and the references now say how to use
   them in Claude Code. The `app-builder` template index is now `templates/README.md` instead of a

@@ -104,7 +104,8 @@ def run_script(name: str, script_path: Optional[Path], project_path: str, url: O
     if url and ("lighthouse" in script_path.name.lower() or "playwright" in script_path.name.lower()):
         cmd.append(url)
     if files is not None:
-        cmd += ["--files", *files]
+        # --changed-lines: findings count only on lines added or changed since HEAD
+        cmd += ["--changed-lines", "--files", *files]
     
     # Run script
     try:
@@ -114,6 +115,10 @@ def run_script(name: str, script_path: Optional[Path], project_path: str, url: O
             text=True,
             timeout=300  # 5 minute timeout
         )
+        if result.returncode == 2 and "--changed-lines" in (result.stderr or ""):
+            # An older copy of the check doesn't know the flag: run it on the whole files instead
+            cmd.remove("--changed-lines")
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
         
         passed = result.returncode == 0
         
@@ -191,7 +196,7 @@ Examples:
     parser.add_argument("--url", help="URL for performance checks (lighthouse, playwright)")
     parser.add_argument("--skip-performance", action="store_true", help="Skip performance checks even if URL provided")
     parser.add_argument("--critical-only", action="store_true", help="Run only the blocking checks (security, lint); used by the Stop hook")
-    parser.add_argument("--files", nargs="*", help="With --critical-only: check only these files (relative to the project)")
+    parser.add_argument("--files", nargs="*", help="With --critical-only: check only the lines of these files changed since HEAD (relative to the project)")
     
     args = parser.parse_args()
     

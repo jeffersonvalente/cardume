@@ -2,8 +2,9 @@
 """
 Stop hook: before Claude finishes a turn that changed code, run the blocking checks
 (`cardume-checklist . --critical-only --files <changed files>`: security scan + lint) on the
-changed files only, so problems that already existed elsewhere in the project never block. If they
-fail, exit 2 so Claude sees the failures and keeps working instead of declaring the task done.
+lines changed since HEAD only (new files count in full), so problems that already existed, even in
+a touched file, never block. If they fail, exit 2 so Claude sees the failures and keeps working
+instead of declaring the task done.
 
 Skips when: not a git repo, nothing changed, the same changes already passed, or
 CARDUME_STOP_VERIFY=0. After MAX_BLOCKS blocks on the same set of changed files it lets Claude stop
@@ -30,11 +31,23 @@ def git(cwd: Path, *args: str) -> subprocess.CompletedProcess:
 
 def changed_files(cwd: Path):
     """Return (fingerprint, existing changed paths) or None when nothing changed."""
-    status = git(cwd, "status", "--porcelain", "--untracked-files=all")
+    # -z: raw names (no quoting or octal escapes for spaces and non-ASCII); a rename is
+    # "R  new\0old\0", so the entry after an R or C is the old name and is skipped
+    status = git(cwd, "status", "--porcelain", "-z", "--untracked-files=all")
     if status.returncode != 0:
         return None
-    lines = [l for l in status.stdout.splitlines() if not l[3:].startswith(".cardume/")]
-    paths = [l[3:].split(" -> ")[-1].strip('"') for l in lines]
+    entries, lines = status.stdout.split("\0"), []
+    i = 0
+    while i < len(entries):
+        entry = entries[i]
+        i += 1
+        if len(entry) < 4:
+            continue
+        if entry[0] in "RC" or entry[1] in "RC":
+            i += 1
+        if not entry[3:].startswith(".cardume/"):
+            lines.append(entry)
+    paths = [l[3:] for l in lines]
     paths = [p for p in paths if (cwd / p).is_file()]
     if not paths:
         return None
