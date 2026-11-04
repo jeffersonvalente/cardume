@@ -1,6 +1,6 @@
 {
   "name": "cardume-qa",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Testing, TDD, E2E with Playwright, security (audit, scanning, red team)",
   "author": {
     "name": "Cardume"

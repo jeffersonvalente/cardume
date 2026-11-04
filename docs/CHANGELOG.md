@@ -6,6 +6,8 @@ All notable changes to Cardume are documented here. The format follows
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-11-04
+
 ### Fixed
 - Evals of the plugins that depend on `cardume-core` ran without the plugin loaded: the dependency was
   missing, so the plugin did not load and both arms were plain Claude. Every case now lists its plugin
