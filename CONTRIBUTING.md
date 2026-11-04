@@ -50,7 +50,7 @@ If you add, remove or reclassify an agent or skill, update the counts sentence i
 
 ## What the validator blocks
 
-`scripts/validate.py` runs 21 checks on every pull request. It blocks:
+`scripts/validate.py` runs 22 checks on every pull request. It blocks:
 
 - **Identity:** names of clients, companies or people (a hashed list; get the hash for a new name
   with `python scripts/validate.py --hash <name>`), update or phone-home hosts, and legacy
@@ -58,6 +58,7 @@ If you add, remove or reclassify an agent or skill, update the counts sentence i
 - **Structure:**
   - every skill folder has a `SKILL.md`, with valid frontmatter that uses only keys Claude Code
     understands;
+  - `SKILL.md` files and `agents/` folders appear only where Claude Code loads them;
   - names are unique and follow the Agent Skills format;
   - `SKILL.md` is at most 500 lines;
   - model-invoked descriptions have a trigger;

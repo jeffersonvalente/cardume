@@ -130,6 +130,20 @@ def skill_folders_have_skill_md() -> None:
 
 
 @check
+def components_where_loaded() -> None:
+    """SKILL.md files and agents/ folders sit only where Claude Code loads them"""
+    skipped = {"evals-lab", "node_modules"}
+    loaded_skills = set(PLUGINS.glob("*/skills/*/SKILL.md"))
+    for path in sorted(p for p in PLUGINS.rglob("*") if p.name.lower() == "skill.md"):
+        if path not in loaded_skills and not skipped & set(path.parts):
+            problem(f"{path.relative_to(ROOT)}: never loads as a skill; rename it or move it to skills/<name>/")
+    loaded_agents = set(PLUGINS.glob("*/agents"))
+    for folder in sorted(d for d in PLUGINS.rglob("agents") if d.is_dir()):
+        if folder not in loaded_agents and not skipped & set(folder.parts):
+            problem(f"{folder.relative_to(ROOT)}: agents load only from plugins/<plugin>/agents/; rename this folder")
+
+
+@check
 def frontmatter_present() -> None:
     """agents and skills start with frontmatter that has name and description"""
     for doc in agents() + skills():

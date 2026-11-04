@@ -1,9 +1,3 @@
----
-name: templates
-description: Scaffolding templates for new projects (Next.js full-stack/SaaS/static, Express API, Expo, Flutter, Electron, Chrome extension, CLI, Turborepo monorepo). Use when creating a new project from scratch and choosing its starting structure.
-allowed-tools: Read, Glob, Grep
----
-
 # Project Templates
 
 > Quick-start templates for scaffolding new projects.

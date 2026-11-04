@@ -19,7 +19,7 @@ Read only the files relevant to the request, using this map, to keep context sma
 | `agent-coordination.md` | Agent pipeline, execution order | Coordinating multi-agent work |
 | `scaffolding.md` | Directory structure, core files | Creating project structure |
 | `feature-building.md` | Feature analysis, error handling | Adding features to existing project |
-| `templates/SKILL.md` | **Project templates** | Scaffolding new project |
+| `templates/README.md` | **Project templates** | Scaffolding new project |
 
 ---
 

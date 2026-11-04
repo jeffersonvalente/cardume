@@ -6,6 +6,15 @@ All notable changes to Cardume are documented here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+- Two files looked like plugin components but never loaded as such. The design-flow subagent prompts
+  moved from `skills/design-flow/agents/` to `subagent-prompts/`, and the references now say how to use
+  them in Claude Code. The `app-builder` template index is now `templates/README.md` instead of a
+  `SKILL.md` one level too deep to load.
+
+### Added
+- Validator check (now 22): `SKILL.md` files and `agents/` folders must sit where Claude Code loads them.
+
 ## [2.1.0] - 2026-11-04
 
 ### Fixed
