@@ -28,8 +28,8 @@ Depois, uma vez em cada projeto:
 O setup mostra o diff e pergunta antes de gravar. Ele altera só um bloco marcado no `CLAUDE.md` e
 acrescenta `.cardume/` ao `.gitignore`. Também sugere os plugins de stack e de navegação de
 código (LSP) que combinam com o projeto. Depois disso, descreva a tarefa como sempre: *"adiciona
-suporte a várias moedas nas faturas"*, *"o endpoint de pedidos dá 500 às vezes"*. O Cardume chama
-você só quando a decisão é sua.
+suporte a várias moedas nas faturas"*, *"o endpoint de pedidos dá 500 às vezes"*. O Cardume chama você só quando a decisão é sua. Na
+dúvida sobre o próximo passo, o `/cardume-core:help` lê o projeto e te diz.
 
 **Para o time todo**, commite isto como `.claude/settings.json` no repositório. Quem abrir o projeto
 e confiar na pasta recebe o marketplace e os plugins, sem nenhum servidor para manter:
@@ -143,7 +143,7 @@ quem construiu.
 
 ## O que vem dentro
 
-33 agentes especialistas, 62 skills e 13 comandos manuais, em sete plugins. O `cardume-all` instala
+33 agentes especialistas, 62 skills e 14 comandos manuais, em sete plugins. O `cardume-all` instala
 todos; o `cardume-core` vem sempre junto.
 
 | Plugin | Para |

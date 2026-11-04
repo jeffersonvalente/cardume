@@ -20,6 +20,7 @@ All notable changes to Cardume are documented here. The format follows
   or `kubectl auth can-i delete pods`.
 
 ### Added
+- `/cardume-core:help` reads the project state and suggests the next command or skill.
 - `docs/CONFIGURATION.md` explains running Cardume alongside other plugins: how the skill listing budget
   works, how to spot an overflow, and how to fix it on a 200k context window.
 - `routing_reminder` hook: before each request, reminds Claude to state the work level, use the matching

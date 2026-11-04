@@ -29,7 +29,7 @@ Setup shows a diff and asks before writing. It changes only a marked block in `C
 `.cardume/` to `.gitignore`. It also suggests the stack and code-navigation (LSP) plugins
 that fit the project. After that, describe your task as usual: *"add multi-currency support to
 invoices"*, *"the orders endpoint returns 500 sometimes"*. Cardume calls you only when the decision
-is yours.
+is yours. Not sure what comes next? `/cardume-core:help` reads the project and tells you.
 
 **For the whole team**, commit this as `.claude/settings.json` in the repository. Everyone who opens
 the project and trusts the folder gets the marketplace and the plugins, with no server to run:
@@ -142,7 +142,7 @@ builder's summary.
 
 ## What's inside
 
-33 specialist agents, 62 skills and 13 manual commands, in seven plugins. `cardume-all` installs
+33 specialist agents, 62 skills and 14 manual commands, in seven plugins. `cardume-all` installs
 them all; `cardume-core` is always included.
 
 | Plugin | For |

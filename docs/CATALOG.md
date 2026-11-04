@@ -1,6 +1,6 @@
 # Catalog
 
-Every agent, skill and manual command in the Cardume plugins: 33 specialist agents, 62 skills and 13 manual commands. Each purpose line is the first sentence of the item's own `description`; open the file for the full text and the "Use when" trigger.
+Every agent, skill and manual command in the Cardume plugins: 33 specialist agents, 62 skills and 14 manual commands. Each purpose line is the first sentence of the item's own `description`; open the file for the full text and the "Use when" trigger.
 
 You rarely call any of these by name. Claude picks agents and skills from their descriptions (see [How it works](HOW_IT_WORKS.md#routing)). Manual commands run only when you type them.
 
@@ -189,6 +189,7 @@ These skills set `disable-model-invocation: true`: Claude never starts them on i
 | [`/cardume-core:create`](../plugins/cardume-core/skills/create/SKILL.md) | Scaffolds a brand-new application from scratch: asks clarifying questions, has project-planner write a plan, builds it with the app-builder skill and specialist agents, then starts a preview. |
 | [`/cardume-core:debug`](../plugins/cardume-core/skills/debug/SKILL.md) | Investigates the given symptom or error systematically: gathers evidence, ranks hypotheses, tests them one by one, fixes the root cause, and reports it in a structured Debug format with prevention steps. |
 | [`/cardume-core:enhance`](../plugins/cardume-core/skills/enhance/SKILL.md) | Adds or changes a feature in an existing application: loads project state, plans affected files, asks approval for major changes, applies them via the relevant agents, and refreshes the preview. |
+| [`/cardume-core:help`](../plugins/cardume-core/skills/help/SKILL.md) | Reads the project state and suggests the next Cardume command or skill for the request at hand. |
 | [`/cardume-core:orchestrate`](../plugins/cardume-core/skills/orchestrate/SKILL.md) | Runs a two-phase multi-agent workflow on the given task: project-planner writes a plan for approval, then 3+ specialist agents implement or analyze in parallel, verification scripts run, and results are merged into one Orchestration Report. |
 | [`/cardume-core:plan`](../plugins/cardume-core/skills/plan/SKILL.md) | Creates a project plan file (docs/PLAN-{task-slug}.md) for the given request using the project-planner agent: clarifying questions, task breakdown, agent assignments, and a verification checklist. |
 | [`/cardume-core:preview`](../plugins/cardume-core/skills/preview/SKILL.md) | Manages the local development preview server via cardume-auto-preview: start, stop, restart, status, or health check, with port-conflict handling. |

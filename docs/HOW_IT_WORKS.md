@@ -123,6 +123,7 @@ Some manual commands in more detail:
 - `release`: only you call it, or the `release-manager` agent.
 - `plan`: a light plan for work across several areas, with no spec or PRD.
 - `create`: only for creating a new app from scratch.
+- `help`: reads the project and suggests the next step. It only suggests, and it changes no files.
 
 ## Who does what in visual work
 
